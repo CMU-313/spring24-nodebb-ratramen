@@ -24,7 +24,7 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=BrunoNeira-cmu&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 0
+                            Commit: 1
                             </a>
                         </th>
                     </tr>
@@ -35,7 +35,7 @@
                     </tr>
                     <tr>
                         <th align="left">
-                            Deletion: 0
+                            Deletion: 122
                         </th>
                     <tr>
                     <tr>
@@ -48,7 +48,7 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/pulls?q=author%3ABrunoNeira-cmu+type%3Apr+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
-                            PRs: 1
+                            PRs: 2
                             </a>
                         </th>
                     <tr>
@@ -87,7 +87,7 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=lj334g&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 0
+                            Commit: 1
                             </a>
                         </th>
                     </tr>
@@ -98,7 +98,7 @@
                     </tr>
                     <tr>
                         <th align="left">
-                            Deletion: 0
+                            Deletion: 122
                         </th>
                     <tr>
                     <tr>
