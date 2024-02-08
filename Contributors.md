@@ -24,18 +24,18 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=BrunoNeira-cmu&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 1
+                            Commit: 2
                             </a>
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Addition: 0
+                            Addition: 48
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Deletion: 122
+                            Deletion: 123
                         </th>
                     <tr>
                     <tr>
@@ -133,69 +133,6 @@
                 <table>
                     <tr>
                         <th>
-                                <img src="https://github.com/forestma1014.png" alt="1" width=100px height=100px>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <a href="https://github.com/forestma1014">
-                            forestma1014
-                            </a>
-                        </th>
-                    </tr>
-                </table>
-            </th>
-            <th>
-                <table>
-                    <tr>
-                        <th align="left">
-                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=forestma1014&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 0
-                            </a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th align="left">
-                            Addition: 0
-                        </th>
-                    </tr>
-                    <tr>
-                        <th align="left">
-                            Deletion: 0
-                        </th>
-                    <tr>
-                    <tr>
-                        <th align="left">
-                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/issues?q=author%3Aforestma1014+type%3Aissue+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
-                            Issues: 2
-                            </a>
-                        </th>
-                    <tr>
-                    <tr>
-                        <th align="left">
-                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/pulls?q=author%3Aforestma1014+type%3Apr+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
-                            PRs: 0
-                            </a>
-                        </th>
-                    <tr>
-                    <tr>
-                        <th align="left">
-                            Comments: 0
-                        </th>
-                    <tr>
-                </table>
-            </th>
-        <tr>
-    </table>
-</th>
-</tr><tr>
-<th>
-    <table>
-        <tr>
-            <th>
-                <table>
-                    <tr>
-                        <th>
                                 <img src="https://github.com/mswebste.png" alt="1" width=100px height=100px>
                         </th>
                     </tr>
@@ -237,6 +174,132 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/pulls?q=author%3Amswebste+type%3Apr+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
+                            PRs: 1
+                            </a>
+                        </th>
+                    <tr>
+                    <tr>
+                        <th align="left">
+                            Comments: 0
+                        </th>
+                    <tr>
+                </table>
+            </th>
+        <tr>
+    </table>
+</th>
+</tr><tr>
+<th>
+    <table>
+        <tr>
+            <th>
+                <table>
+                    <tr>
+                        <th>
+                                <img src="https://github.com/coveralls.png" alt="1" width=100px height=100px>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="https://github.com/coveralls">
+                            coveralls
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+            <th>
+                <table>
+                    <tr>
+                        <th align="left">
+                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=coveralls&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
+                            Commit: 0
+                            </a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th align="left">
+                            Addition: 0
+                        </th>
+                    </tr>
+                    <tr>
+                        <th align="left">
+                            Deletion: 0
+                        </th>
+                    <tr>
+                    <tr>
+                        <th align="left">
+                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/issues?q=author%3Acoveralls+type%3Aissue+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
+                            Issues: 0
+                            </a>
+                        </th>
+                    <tr>
+                    <tr>
+                        <th align="left">
+                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/pulls?q=author%3Acoveralls+type%3Apr+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
+                            PRs: 0
+                            </a>
+                        </th>
+                    <tr>
+                    <tr>
+                        <th align="left">
+                            Comments: 1
+                        </th>
+                    <tr>
+                </table>
+            </th>
+        <tr>
+    </table>
+</th>
+
+<th>
+    <table>
+        <tr>
+            <th>
+                <table>
+                    <tr>
+                        <th>
+                                <img src="https://github.com/forestma1014.png" alt="1" width=100px height=100px>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <a href="https://github.com/forestma1014">
+                            forestma1014
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+            <th>
+                <table>
+                    <tr>
+                        <th align="left">
+                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=forestma1014&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
+                            Commit: 0
+                            </a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th align="left">
+                            Addition: 0
+                        </th>
+                    </tr>
+                    <tr>
+                        <th align="left">
+                            Deletion: 0
+                        </th>
+                    <tr>
+                    <tr>
+                        <th align="left">
+                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/issues?q=author%3Aforestma1014+type%3Aissue+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
+                            Issues: 2
+                            </a>
+                        </th>
+                    <tr>
+                    <tr>
+                        <th align="left">
+                            <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/pulls?q=author%3Aforestma1014+type%3Apr+created%3A2024-01-20T00:00:00-05:00..2024-03-29T23:59:00-05:00">
                             PRs: 0
                             </a>
                         </th>
