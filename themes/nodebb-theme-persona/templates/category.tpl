@@ -5,6 +5,20 @@
     {{{end}}}
 </div>
 <div class="row">
+        <div class="topic-list-header clearfix">
+            <div class="col-lg-3 col-xs-9">
+
+                <div class="input-group">
+                    <input class="form-control" id="search-user" type="text" placeholder="Search for post"/>
+                    <span class="input-group-addon">
+                        <a href="https://www.google.com" id="search-icon-link">
+                            <i component="user/search/icon" class="fa fa-search"></i>
+                        </a>                   
+                    </span>
+                </div>
+        
+        </div>
+
     <div class="category <!-- IF widgets.sidebar.length -->col-lg-9 col-sm-12<!-- ELSE -->col-lg-12<!-- ENDIF widgets.sidebar.length -->">
         <!-- IMPORT partials/category/subcategory.tpl -->
 
