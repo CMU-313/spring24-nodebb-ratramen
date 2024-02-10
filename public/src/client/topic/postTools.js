@@ -98,6 +98,10 @@ define('forum/topic/postTools', [
             onReplyClicked($(this), tid);
         });
 
+        postContainer.on('click', '[component="post/accept"]', function () {
+            onAcceptClicked($(this), tid);
+        });
+
         $('.topic').on('click', '[component="topic/reply"]', function (e) {
             e.preventDefault();
             onReplyClicked($(this), tid);
@@ -286,6 +290,10 @@ define('forum/topic/postTools', [
                 });
             }
         });
+    }
+
+    async function onAcceptClicked(button, tid) {
+        console.log('Accept clicked');
     }
 
     async function onQuoteClicked(button, tid) {
