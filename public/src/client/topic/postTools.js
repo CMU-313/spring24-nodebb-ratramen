@@ -7,12 +7,11 @@ define('forum/topic/postTools', [
     'components',
     'translator',
     'forum/topic/votes',
-    'forum/topic/posts',
     'api',
     'bootbox',
     'alerts',
     'hooks',
-], function (share, navigator, components, translator, votes, posts, api, bootbox, alerts, hooks) {
+], function (share, navigator, components, translator, votes, api, bootbox, alerts, hooks) {
     const PostTools = {};
 
     let staleReplyAnyway = false;
@@ -100,7 +99,7 @@ define('forum/topic/postTools', [
         });
 
         postContainer.on('click', '[component="post/accept"]', function () {
-            posts.toggleAccept($(this), tid);
+            toggleAccept($(this), tid);
         });
 
         $('.topic').on('click', '[component="topic/reply"]', function (e) {
@@ -290,6 +289,24 @@ define('forum/topic/postTools', [
                     text: username ? username + ' ' : ($('[component="topic/quickreply/text"]').val() || ''),
                 });
             }
+        });
+    }
+
+    async function toggleAccept(button, tid) {
+        // get the post id from the button
+        const pid = getData(button, 'data-pid');
+
+        // update the post so that it is accepted 
+        api.put(`/posts/${pid}/accept`, undefined, function (err) {
+            if (err) {
+                return alerts.error(err);
+            }
+
+            // fire the action:post.accept hook
+            hooks.fire('action:post.accept', {
+                pid: pid,
+                tid: tid,
+            });
         });
     }
 
