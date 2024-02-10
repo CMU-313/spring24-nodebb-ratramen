@@ -99,7 +99,7 @@ define('forum/topic/postTools', [
         });
 
         postContainer.on('click', '[component="post/accept"]', function () {
-            onAcceptClicked($(this), getData($(this), 'data-pid'));
+            onAcceptClicked($(this), tid);
         });
 
         $('.topic').on('click', '[component="topic/reply"]', function (e) {
@@ -292,8 +292,10 @@ define('forum/topic/postTools', [
         });
     }
 
-    async function onAcceptClicked(button, pid) {
-        console.log(pid);
+    async function onAcceptClicked(button, tid) {
+        const toPid = getData(button, 'data-pid');
+
+        console.log(toPid)
     }
 
     async function onQuoteClicked(button, tid) {
