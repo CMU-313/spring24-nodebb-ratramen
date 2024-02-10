@@ -7,11 +7,12 @@ define('forum/topic/postTools', [
     'components',
     'translator',
     'forum/topic/votes',
+    'forum/topic/posts',
     'api',
     'bootbox',
     'alerts',
     'hooks',
-], function (share, navigator, components, translator, votes, api, bootbox, alerts, hooks) {
+], function (share, navigator, components, translator, votes, posts, api, bootbox, alerts, hooks) {
     const PostTools = {};
 
     let staleReplyAnyway = false;
@@ -99,7 +100,7 @@ define('forum/topic/postTools', [
         });
 
         postContainer.on('click', '[component="post/accept"]', function () {
-            onAcceptClicked($(this), tid);
+            posts.toggleAccept($(this), tid);
         });
 
         $('.topic').on('click', '[component="topic/reply"]', function (e) {
@@ -290,12 +291,6 @@ define('forum/topic/postTools', [
                 });
             }
         });
-    }
-
-    async function onAcceptClicked(button, tid) {
-        const toPid = getData(button, 'data-pid');
-
-        console.log(toPid)
     }
 
     async function onQuoteClicked(button, tid) {
