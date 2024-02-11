@@ -1,0 +1,52 @@
+put:
+  tags:
+    - posts
+  summary: accept a post
+  description: This operation accepts a post.
+  parameters:
+    - in: path
+      name: pid
+      schema:
+        type: string
+      required: true
+      description: a valid post id
+      example: 2
+  responses:
+    '200':
+      description: Post successfully accepted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: ../../../components/schemas/Status.yaml#/Status
+              response:
+                type: object
+                properties: {}
+delete:
+  tags:
+    - posts
+  summary: unaccept a post
+  description: This operation unaccepts a post.
+  parameters:
+    - in: path
+      name: pid
+      schema:
+        type: string
+      required: true
+      description: a valid post id
+      example: 2
+  responses:
+    '200':
+      description: Post successfully unaccepted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                $ref: ../../../components/schemas/Status.yaml#/Status
+              response:
+                type: object
+                properties: {}
