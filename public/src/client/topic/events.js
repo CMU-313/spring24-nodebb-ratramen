@@ -40,6 +40,9 @@ define('forum/topic/events', [
         'posts.bookmark': togglePostBookmark,
         'posts.unbookmark': togglePostBookmark,
 
+        'posts.accept': togglePostAccept,
+        'posts.unaccept': togglePostAccept,
+
         'posts.upvote': togglePostVote,
         'posts.downvote': togglePostVote,
         'posts.unvote': togglePostVote,
@@ -219,6 +222,20 @@ define('forum/topic/events', [
 
         el.find('[component="post/bookmark/on"]').toggleClass('hidden', !data.isBookmarked);
         el.find('[component="post/bookmark/off"]').toggleClass('hidden', data.isBookmarked);
+    }
+
+    function togglePostAccept(data) {
+        const el = $('[data-pid="' + data.post.pid + '"] [component="post/accept"]').filter(function (index, el) {
+            return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
+        });
+        if (!el.length) {
+            return;
+        }
+
+        el.attr('data-accepted', data.isAccepted);
+
+        el.find('[component="post/accept/on"]').toggleClass('hidden', !data.isAccepted);
+        el.find('[component="post/accept/off"]').toggleClass('hidden', data.isAccepted);
     }
 
     function togglePostVote(data) {
