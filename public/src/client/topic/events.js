@@ -232,10 +232,10 @@ define('forum/topic/events', [
             return;
         }
 
-        el.attr('data-accept', data.isAccepted);
+        el.attr('data-accepted', data.isAccepted);
 
-        // el.find('[component="post/bookmark/on"]').toggleClass('hidden', !data.isBookmarked);
-        // el.find('[component="post/bookmark/off"]').toggleClass('hidden', data.isBookmarked);
+        el.find('[component="post/accept/on"]').toggleClass('hidden', !data.isAccepted);
+        el.find('[component="post/accept/off"]').toggleClass('hidden', data.isAccepted);
     }
 
     function togglePostVote(data) {

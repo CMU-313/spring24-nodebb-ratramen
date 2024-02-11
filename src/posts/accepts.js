@@ -17,7 +17,7 @@ module.exports = function (Posts) {
             throw new Error('[[error:not-logged-in]]');
         }
 
-        const isAccepting = type === 'accept';
+        let isAccepting = type === 'accept';
 
         const [postData, hasAccepted] = await Promise.all([
             Posts.getPostFields(pid, ['pid', 'uid']),
@@ -25,7 +25,7 @@ module.exports = function (Posts) {
         ]);
 
         if (isAccepting && hasAccepted) {
-            throw new Error('[[error:already-accepted]]');
+            isAccepting = false
         }
 
         if (!isAccepting && !hasAccepted) {
