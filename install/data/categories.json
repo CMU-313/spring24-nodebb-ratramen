@@ -1,8 +1,8 @@
 [
     {
         "name": "Announcements",
-        "description": "Announcements regarding our community",
-        "descriptionParsed": "<p>Announcements regarding our community</p>\n",
+        "description": "Announcements regarding our course",
+        "descriptionParsed": "<p>Announcements regarding our course</p>\n",
         "bgColor": "#fda34b",
         "color": "#ffffff",
         "icon" : "fa-bullhorn",
@@ -18,21 +18,21 @@
         "order": 2
     },
     {
-        "name": "Blogs",
-        "description": "Blog posts from individual members",
-        "descriptionParsed": "<p>Blog posts from individual members</p>\n",
+        "name": "Assignments",
+        "description": "A place to view course assingments",
+        "descriptionParsed": "<p>A place to view course assingments</p>\n",
         "bgColor": "#86ba4b",
         "color": "#ffffff",
         "icon" : "fa-newspaper-o",
-        "order": 4
+        "order": 3
     },
     {
         "name": "Comments & Feedback",
         "description": "Got a question? Ask away!",
         "descriptionParsed": "<p>Got a question? Ask away!</p>\n",
         "bgColor": "#e95c5a",
-        "color": "#ffffff",
+        "color": "#ffffff", 
         "icon" : "fa-question",
-        "order": 3
+        "order": 4
     }
 ]
