@@ -24,18 +24,18 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=BrunoNeira-cmu&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 4
+                            Commit: 15
                             </a>
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Addition: 97
+                            Addition: 354
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Deletion: 125
+                            Deletion: 197
                         </th>
                     <tr>
                     <tr>
@@ -87,13 +87,13 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=mswebste&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 1
+                            Commit: 2
                             </a>
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Addition: 47
+                            Addition: 232
                         </th>
                     </tr>
                     <tr>
