@@ -98,10 +98,6 @@ define('forum/topic/postTools', [
             onReplyClicked($(this), tid);
         });
 
-        postContainer.on('click', '[component="post/accept"]', function () {
-            toggleAccept($(this), tid);
-        });
-
         $('.topic').on('click', '[component="topic/reply"]', function (e) {
             e.preventDefault();
             onReplyClicked($(this), tid);
@@ -114,6 +110,10 @@ define('forum/topic/postTools', [
                     body: body,
                 });
             });
+        });
+
+        postContainer.on('click', '[component="post/accept"]', function () {
+            return acceptPost($(this), getData($(this), 'data-pid'));
         });
 
         postContainer.on('click', '[component="post/bookmark"]', function () {
@@ -292,24 +292,6 @@ define('forum/topic/postTools', [
         });
     }
 
-    async function toggleAccept(button, tid) {
-        // get the post id from the button
-        const pid = getData(button, 'data-pid');
-
-        // update the post so that it is accepted 
-        api.put(`/posts/${pid}/accept`, undefined, function (err) {
-            if (err) {
-                return alerts.error(err);
-            }
-
-            // fire the action:post.accept hook
-            hooks.fire('action:post.accept', {
-                pid: pid,
-                tid: tid,
-            });
-        });
-    }
-
     async function onQuoteClicked(button, tid) {
         const selectedNode = await getSelectedNode();
 
@@ -371,6 +353,19 @@ define('forum/topic/postTools', [
             range.detach();
         }
         return { text: selectedText, pid: selectedPid, username: username };
+    }
+
+    function acceptPost(button, pid) {
+        const method = button.attr('data-accepted') === 'false' ? 'put' : 'del';
+
+        api[method](`/posts/${pid}/accept`, undefined, function (err) {
+            if (err) {
+                return alerts.error(err);
+            }
+            const type = method === 'put' ? 'accept' : 'unacceptk';
+            hooks.fire(`action:post.${type}`, { pid: pid });
+        });
+        return false;
     }
 
     function bookmarkPost(button, pid) {
