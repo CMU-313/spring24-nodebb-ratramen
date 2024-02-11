@@ -25,7 +25,7 @@ module.exports = function (Posts) {
         ]);
 
         if (isAccepting && hasAccepted) {
-            isAccepting = false
+            isAccepting = false;
         }
 
         if (!isAccepting && !hasAccepted) {

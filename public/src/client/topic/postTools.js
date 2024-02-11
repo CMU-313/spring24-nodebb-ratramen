@@ -358,7 +358,7 @@ define('forum/topic/postTools', [
     function acceptPost(button, pid) {
         const method = button.attr('data-accepted') === 'false' ? 'put' : 'del';
 
-        console.log(button.attr('data-accepted'))
+        console.log(button.attr('data-accepted'));
 
         api[method](`/posts/${pid}/accept`, undefined, function (err) {
             if (err) {
