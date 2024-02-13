@@ -19,6 +19,9 @@ define('forum/topic/events', [
         'event:voted': updatePostVotesAndUserReputation,
         'event:bookmarked': updateBookmarkCount,
 
+        'event:post_pinned': togglePinPost,
+        'event:post_unpinned': togglePinPost,
+
         'event:topic_deleted': threadTools.setDeleteState,
         'event:topic_restored': threadTools.setDeleteState,
         'event:topic_purged': onTopicPurged,
@@ -68,6 +71,28 @@ define('forum/topic/events', [
     function onUserStatusChange(data) {
         app.updateUserStatus($('[data-uid="' + data.uid + '"] [component="user/status"]'), data.status);
     }
+
+    function togglePinPost(data) {
+        if (typeof data !== 'object' || typeof data.post !== 'object' ||
+            !(typeof data.post.pid === 'string' || typeof data.post.pid === 'number') ||
+            typeof data.isPinned !== 'boolean') {
+            console.error('Invalid data provided to togglePostPin');
+            return;
+        }
+    
+        const pinElement = $('[data-pid="' + data.post.pid + '"] [component="post/pin"]').filter(function (index, el) {
+            return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
+        });
+    
+        if (!pinElement.length) {
+            console.warn('Post pin element not found for PID:', data.post.pid);
+            return;
+        }
+    
+        pinElement.attr('data-pinned', data.isPinned);
+        pinElement.find('[component="post/pin/on"]').toggleClass('hidden', !data.isPinned);
+        pinElement.find('[component="post/pin/off"]').toggleClass('hidden', data.isPinned);
+    }    
 
     function updatePostVotesAndUserReputation(data) {
         const votes = $('[data-pid="' + data.post.pid + '"] [component="post/vote-count"]').filter(function (index, el) {
