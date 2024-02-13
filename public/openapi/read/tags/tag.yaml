@@ -223,6 +223,8 @@ get:
                           type: number
                         isSolved:
                           type: number
+                        pins:
+                          type: number
                   tag:
                     type: string
                   title:

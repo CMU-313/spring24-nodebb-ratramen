@@ -19,6 +19,9 @@ define('forum/topic/events', [
         'event:voted': updatePostVotesAndUserReputation,
         'event:bookmarked': updateBookmarkCount,
 
+        'post.pin': togglePinPost,
+        'posts.unpin': togglePinPost,
+
         'event:topic_deleted': threadTools.setDeleteState,
         'event:topic_restored': threadTools.setDeleteState,
         'event:topic_purged': onTopicPurged,
@@ -70,6 +73,41 @@ define('forum/topic/events', [
 
     function onUserStatusChange(data) {
         app.updateUserStatus($('[data-uid="' + data.uid + '"] [component="user/status"]'), data.status);
+    }
+
+    function togglePinPost(data) {
+        if (typeof data !== 'object') {
+            console.error('Invalid data provided: data needs to be an object');
+            return;
+        }
+
+        if (typeof data.post !== 'object') {
+            console.error('Invalid data provided: data.post needs to be an object');
+            return;
+        }
+
+        if (!(typeof data.post.pid === 'string' || typeof data.post.pid === 'number')) {
+            console.error('Invalid data provided: data.post.pid needs to be a string or number');
+            return;
+        }
+
+        if (typeof data.isPinned !== 'boolean') {
+            console.error('Invalid data provided: data.isPinned needs to be a boolean');
+            return;
+        }
+
+        const pinElement = $('[data-pid="' + data.post.pid + '"] [component="post/pin"]').filter(function (index, el) {
+            return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
+        });
+
+        if (!pinElement.length) {
+            console.warn('Post pin element not found for PID:', data.post.pid);
+            return;
+        }
+
+        pinElement.attr('data-pinned', data.isPinned);
+        pinElement.find('[component="post/pin/on"]').toggleClass('hidden', !data.isPinned);
+        pinElement.find('[component="post/pin/off"]').toggleClass('hidden', data.isPinned);
     }
 
     function updatePostVotesAndUserReputation(data) {
