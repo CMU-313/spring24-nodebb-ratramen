@@ -1,8 +1,8 @@
 put:
   tags:
     - posts
-  summary: bookmark a post
-  description: This operation bookmarks a post.
+  summary: pins a post
+  description: This operation pins a post.
   parameters:
     - in: path
       name: pid
@@ -13,7 +13,7 @@ put:
       example: 2
   responses:
     '200':
-      description: Post successfully bookmarked
+      description: Post successfully pinned
       content:
         application/json:
           schema:
@@ -27,8 +27,8 @@ put:
 delete:
   tags:
     - posts
-  summary: unbookmark a post
-  description: This operation unbookmarks a post.
+  summary: unpins a post
+  description: This operation unpins a post.
   parameters:
     - in: path
       name: pid
@@ -39,7 +39,7 @@ delete:
       example: 2
   responses:
     '200':
-      description: Post successfully unbookmarked
+      description: Post successfully unpinned
       content:
         application/json:
           schema:
