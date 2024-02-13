@@ -19,8 +19,8 @@ define('forum/topic/events', [
         'event:voted': updatePostVotesAndUserReputation,
         'event:bookmarked': updateBookmarkCount,
 
-        'event:post_pinned': togglePinPost,
-        'event:post_unpinned': togglePinPost,
+        'post.pin': togglePinPost,
+        'posts.unpin': togglePinPost,
 
         'event:topic_deleted': threadTools.setDeleteState,
         'event:topic_restored': threadTools.setDeleteState,
@@ -73,10 +73,23 @@ define('forum/topic/events', [
     }
 
     function togglePinPost(data) {
-        if (typeof data !== 'object' || typeof data.post !== 'object' ||
-            !(typeof data.post.pid === 'string' || typeof data.post.pid === 'number') ||
-            typeof data.isPinned !== 'boolean') {
-            console.error('Invalid data provided to togglePostPin');
+        if (typeof data !== 'object') {
+            console.error('Invalid data provided: data needs to be an object');
+            return;
+        }
+
+        if (typeof data.post !== 'object') {
+            console.error('Invalid data provided: data.post needs to be an object');
+            return;
+        }
+
+        if (!(typeof data.post.pid === 'string' || typeof data.post.pid === 'number')) {
+            console.error('Invalid data provided: data.post.pid needs to be a string or number');
+            return;
+        }
+
+        if (typeof data.isPinned !== 'boolean') {
+            console.error('Invalid data provided: data.isPinned needs to be a boolean');
             return;
         }
     
