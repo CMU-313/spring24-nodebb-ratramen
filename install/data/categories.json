@@ -1,8 +1,8 @@
 [
     {
         "name": "Announcements",
-        "description": "Announcements regarding our course",
-        "descriptionParsed": "<p>Announcements regarding our course</p>\n",
+        "description": "Announcements regarding your course",
+        "descriptionParsed": "<p>Announcements regarding your course</p>\n",
         "bgColor": "#fda34b",
         "color": "#ffffff",
         "icon" : "fa-bullhorn",
@@ -10,29 +10,38 @@
     },
     {
         "name": "General Discussion",
-        "description": "A place to talk about whatever you want",
-        "descriptionParsed": "<p>A place to talk about whatever you want</p>\n",
+        "description": "A place to talk with your peers",
+        "descriptionParsed": "<p>A place to talk with your peers</p>\n",
         "bgColor": "#59b3d0",
         "color": "#ffffff",
         "icon" : "fa-comments-o",
-        "order": 2
+        "order": 3
     },
     {
-        "name": "Assignments",
+        "name": "Course Content",
         "description": "A place to view course assingments",
         "descriptionParsed": "<p>A place to view course assingments</p>\n",
         "bgColor": "#86ba4b",
         "color": "#ffffff",
         "icon" : "fa-newspaper-o",
-        "order": 3
+        "order": 2
     },
     {
-        "name": "Comments & Feedback",
-        "description": "Got a question? Ask away!",
-        "descriptionParsed": "<p>Got a question? Ask away!</p>\n",
+        "name": "Personal",
+        "description": "Want a personal space to store notes or course content?",
+        "descriptionParsed": "<p>This is your own note space!</p>\n",
         "bgColor": "#e95c5a",
         "color": "#ffffff", 
         "icon" : "fa-question",
         "order": 4
+    },
+    {
+        "name": "Spare",
+        "description": "Want to test a separate category",
+        "descriptionParsed": "<p>This is a spare</p>\n",
+        "bgColor": "#e95c5a",
+        "color": "#ffffff", 
+        "icon" : "fa-question",
+        "order": 5
     }
 ]
