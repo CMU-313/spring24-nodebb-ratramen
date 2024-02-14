@@ -355,12 +355,18 @@ define('forum/topic/postTools', [
         return { text: selectedText, pid: selectedPid, username: username };
     }
 
-    function acceptPost(button, pid) {
+    function acceptPost(button, pid) { // acceptPost(button: JQuery, pid: string): boolean
+        console.assert(typeof button === 'object', 'button is not an object');
+        console.assert(typeof pid === 'string', 'pid is not a string');
+
         const method = button.attr('data-accepted') === 'false' ? 'put' : 'del';
 
         console.log(button.attr('data-accepted'));
 
         api[method](`/posts/${pid}/accept`, undefined, function (err) {
+
+            console.assert(typeof err === 'object', 'err is not an object');
+
             if (err) {
                 return alerts.error(err);
             }
