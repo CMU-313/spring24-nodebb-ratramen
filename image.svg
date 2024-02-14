@@ -29,7 +29,7 @@ BrunoNeira-cmu
 </svg>
 <a xlink:href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=BrunoNeira-cmu&amp;since=2024-01-20T00:00:00-05:00&amp;until=2024-03-29T23:59:00-05:00">
 <text class="stat" x="25" y="12.5">
-Commit: 17
+Commit: 19
 </text>
 </a>
 </g>
@@ -38,7 +38,7 @@ Commit: 17
 <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill-rule="evenodd"/>
 </svg>
 <text class="stat" x="25" y="12.5">
-Addition: 462
+Addition: 524
 </text>
 </g>
 <g transform="translate(0, 50)">
@@ -46,7 +46,7 @@ Addition: 462
 <path d="M0 10h24v4h-24z" fill-rule="evenodd"/>
 </svg>
 <text class="stat" x="25" y="12.5">
-Deletion: 197
+Deletion: 232
 </text>
 </g>
 <g transform="translate(0, 75)">
@@ -101,7 +101,7 @@ lj334g
 </svg>
 <a xlink:href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=lj334g&amp;since=2024-01-20T00:00:00-05:00&amp;until=2024-03-29T23:59:00-05:00">
 <text class="stat" x="25" y="12.5">
-Commit: 10
+Commit: 11
 </text>
 </a>
 </g>
@@ -110,7 +110,7 @@ Commit: 10
 <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" fill-rule="evenodd"/>
 </svg>
 <text class="stat" x="25" y="12.5">
-Addition: 167
+Addition: 200
 </text>
 </g>
 <g transform="translate(0, 50)">
@@ -118,7 +118,7 @@ Addition: 167
 <path d="M0 10h24v4h-24z" fill-rule="evenodd"/>
 </svg>
 <text class="stat" x="25" y="12.5">
-Deletion: 317
+Deletion: 323
 </text>
 </g>
 <g transform="translate(0, 75)">
