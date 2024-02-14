@@ -86,13 +86,13 @@ define('forum/topic/events', [
         console.assert(typeof data.post === 'object', 'data.post must be an object');
         console.assert(typeof data.post.pid === 'string' || typeof data.post.pid === 'number', 'data.post.pid must be a string or number');
         console.assert(typeof data.isPinned === 'boolean', 'data.isPinned must be a boolean');
-    
+
         const pinElement = $('[data-pid="' + data.post.pid + '"] [component="post/pin"]').filter(function (index, el) {
             return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
         });
-    
+
         console.assert(pinElement.length > 0, 'Post pin element not found for PID: ' + data.post.pid);
-    
+
         pinElement.attr('data-pinned', data.isPinned);
         pinElement.find('[component="post/pin/on"]').toggleClass('hidden', !data.isPinned);
         pinElement.find('[component="post/pin/off"]').toggleClass('hidden', data.isPinned);
