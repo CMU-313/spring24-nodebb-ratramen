@@ -263,9 +263,7 @@ define('forum/topic/events', [
     }
 
     function togglePostAccept(data) { // togglePostAccept(data: object): void
-
         console.assert(typeof data === 'object', 'Invalid data provided: data needs to be an object');
-
         const el = $('[data-pid="' + data.post.pid + '"] [component="post/accept"]').filter(function (index, el) {
             console.assert(typeof index === 'number', 'Invalid index provided: index needs to be a number');
             console.assert(typeof el === 'object', 'Invalid el provided: el needs to be an object');

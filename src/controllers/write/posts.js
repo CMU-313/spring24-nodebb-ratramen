@@ -84,20 +84,16 @@ Posts.unbookmark = async (req, res) => {
 };
 
 Posts.accept = async (req, res) => { // Post.accept(req: object, res: object) => void
-
     console.assert(typeof req === 'object', 'req must be an object');
     console.assert(typeof res === 'object', 'res must be an object');
-
     const data = await mock(req);
     await api.posts.accept(req, data);
     helpers.formatApiResponse(200, res);
 };
 
 Posts.unaccept = async (req, res) => { // Post.accept(req: object, res: object) => void
-
     console.assert(typeof req === 'object', 'req must be an object');
     console.assert(typeof res === 'object', 'res must be an object');
-    
     const data = await mock(req);
     await api.posts.unaccept(req, data);
     helpers.formatApiResponse(200, res);

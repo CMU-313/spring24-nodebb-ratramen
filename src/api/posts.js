@@ -274,18 +274,14 @@ postsAPI.unbookmark = async function (caller, data) {
 };
 
 postsAPI.accept = async function (caller, data) { // posts.accept(caller: object, data: object) -> Promise
-
     console.assert(typeof data === 'object', 'data must be an object');
     console.assert(typeof caller === 'object', 'caller must be an object');
-
     return await apiHelpers.postCommand(caller, 'accept', 'accepted', '', data);
 };
 
 postsAPI.unaccept = async function (caller, data) { // posts.unaccept(caller: object, data: object) -> Promise
-
     console.assert(typeof data === 'object', 'data must be an object');
     console.assert(typeof caller === 'object', 'caller must be an object');
-
     return await apiHelpers.postCommand(caller, 'unaccept', 'accepted', '', data);
 };
 

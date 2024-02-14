@@ -4,27 +4,25 @@ const db = require('../database');
 const plugins = require('../plugins');
 
 module.exports = function (Posts) {
-    Posts.accept = async function (pid, uid) { // accept(pid: number, uid: number) -> Promise<{ post: Post, isAccepted: boolean }>
-
+    Posts.accept = async function (pid, uid) {
+        // accept(pid: number, uid: number) -> Promise<{ post: Post, isAccepted: boolean }>
         console.assert(typeof pid === 'number', 'pid must be a number');
         console.assert(typeof uid === 'number', 'uid must be a number');
-
         return await toggleAccept('accept', pid, uid);
     };
 
-    Posts.unaccept = async function (pid, uid) { //unaccept(pid: number, uid: number) -> Promise<{ post: Post, isAccepted: boolean }>
+    Posts.unaccept = async function (pid, uid) {
+        // unaccept(pid: number, uid: number) -> Promise<{ post: Post, isAccepted: boolean }>
         console.assert(typeof pid === 'number', 'pid must be a number');
         console.assert(typeof uid === 'number', 'uid must be a number');
-
         return await toggleAccept('unaccept', pid, uid);
     };
 
-    async function toggleAccept(type, pid, uid) { // toggleAccept(type: string, pid: number, uid: number) -> Promise<{ post: Post, isAccepted: boolean }>
-
+    async function toggleAccept(type, pid, uid) {
+        // toggleAccept(type: string, pid: number, uid: number) -> Promise<{ post: Post, isAccepted: boolean }>
         console.assert(typeof type === 'string', 'type must be a string');
         console.assert(typeof pid === 'number', 'pid must be a number');
         console.assert(typeof uid === 'number', 'uid must be a number');
-
         if (parseInt(uid, 10) <= 0) {
             throw new Error('[[error:not-logged-in]]');
         }
@@ -66,10 +64,10 @@ module.exports = function (Posts) {
         };
     }
 
-    Posts.hasAccepted = async function (pid, uid) { // hasAccepted(pid: number, uid: number) -> Promise<boolean>
+    Posts.hasAccepted = async function (pid, uid) {
+        // hasAccepted(pid: number, uid: number) -> Promise<boolean>
         console.assert(typeof pid === 'number', 'pid must be a number');
         console.assert(typeof uid === 'number', 'uid must be a number');
-        
         if (parseInt(uid, 10) <= 0) {
             return Array.isArray(pid) ? pid.map(() => false) : false;
         }
