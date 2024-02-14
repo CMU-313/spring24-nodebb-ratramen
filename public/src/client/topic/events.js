@@ -262,8 +262,11 @@ define('forum/topic/events', [
         el.find('[component="post/bookmark/off"]').toggleClass('hidden', data.isBookmarked);
     }
 
-    function togglePostAccept(data) {
+    function togglePostAccept(data) { // togglePostAccept(data: object): void
+        console.assert(typeof data === 'object', 'Invalid data provided: data needs to be an object');
         const el = $('[data-pid="' + data.post.pid + '"] [component="post/accept"]').filter(function (index, el) {
+            console.assert(typeof index === 'number', 'Invalid index provided: index needs to be a number');
+            console.assert(typeof el === 'object', 'Invalid el provided: el needs to be an object');
             return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
         });
         if (!el.length) {
