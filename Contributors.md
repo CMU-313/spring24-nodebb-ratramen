@@ -24,18 +24,18 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=BrunoNeira-cmu&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 19
+                            Commit: 20
                             </a>
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Addition: 524
+                            Addition: 538
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Deletion: 232
+                            Deletion: 255
                         </th>
                     <tr>
                     <tr>
@@ -87,18 +87,18 @@
                     <tr>
                         <th align="left">
                             <a href="https://github.com/CMU-313/spring24-nodebb-ratramen/commits?author=lj334g&since=2024-01-20T00:00:00-05:00&until=2024-03-29T23:59:00-05:00">
-                            Commit: 11
+                            Commit: 13
                             </a>
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Addition: 200
+                            Addition: 220
                         </th>
                     </tr>
                     <tr>
                         <th align="left">
-                            Deletion: 323
+                            Deletion: 352
                         </th>
                     <tr>
                     <tr>
@@ -306,7 +306,7 @@
                     <tr>
                     <tr>
                         <th align="left">
-                            Comments: 7
+                            Comments: 8
                         </th>
                     <tr>
                 </table>
