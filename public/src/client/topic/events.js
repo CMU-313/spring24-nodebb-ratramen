@@ -75,35 +75,26 @@ define('forum/topic/events', [
         app.updateUserStatus($('[data-uid="' + data.uid + '"] [component="user/status"]'), data.status);
     }
 
+    // Toggles the pin status of a post
+    // @param {Object} data - { post: { pid: (string|number) }, isPinned: boolean }
     function togglePinPost(data) {
-        if (typeof data !== 'object') {
-            console.error('Invalid data provided: data needs to be an object');
-            return;
-        }
-
-        if (typeof data.post !== 'object') {
-            console.error('Invalid data provided: data.post needs to be an object');
-            return;
-        }
-
-        if (!(typeof data.post.pid === 'string' || typeof data.post.pid === 'number')) {
-            console.error('Invalid data provided: data.post.pid needs to be a string or number');
-            return;
-        }
-
-        if (typeof data.isPinned !== 'boolean') {
-            console.error('Invalid data provided: data.isPinned needs to be a boolean');
-            return;
-        }
+        /**
+         * Asserts:
+         *   - `data` is an object
+         *   - `data.post` is an object
+         *   - `data.post.pid` is a string or number
+         *   - `data.isPinned` is a boolean
+         */
+        console.assert(typeof data === 'object', 'data must be an object');
+        console.assert(typeof data.post === 'object', 'data.post must be an object');
+        console.assert(typeof data.post.pid === 'string' || typeof data.post.pid === 'number', 'data.post.pid must be a string or number');
+        console.assert(typeof data.isPinned === 'boolean', 'data.isPinned must be a boolean');
 
         const pinElement = $('[data-pid="' + data.post.pid + '"] [component="post/pin"]').filter(function (index, el) {
             return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
         });
 
-        if (!pinElement.length) {
-            console.warn('Post pin element not found for PID:', data.post.pid);
-            return;
-        }
+        console.assert(pinElement.length > 0, 'Post pin element not found for PID: ' + data.post.pid);
 
         pinElement.attr('data-pinned', data.isPinned);
         pinElement.find('[component="post/pin/on"]').toggleClass('hidden', !data.isPinned);
