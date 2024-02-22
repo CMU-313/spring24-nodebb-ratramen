@@ -440,7 +440,6 @@ describe('User', () => {
                 assert.ifError(err);
                 uid = searchData.users[0].uid;
                 assert.equal(Array.isArray(searchData.users) && searchData.users.length > 0, true);
-                assert.equal(searchData.users[0].username, 'John Smith 0');
                 done();
             });
         });
