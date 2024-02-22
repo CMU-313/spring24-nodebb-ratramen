@@ -115,12 +115,14 @@ module.exports = function (Topics) {
             return _.zipObject(uids, userData);
         }
         const [
+            accepts,
             bookmarks,
             voteData,
             userData,
             editors,
             replies,
         ] = await Promise.all([
+            posts.hasAccepted(pids, uid),
             posts.hasBookmarked(pids, uid),
             posts.getVoteStatusByPostIDs(pids, uid),
             getPostUserData('uid', async uids => await posts.getUserInfoForPosts(uids, uid)),
@@ -133,6 +135,7 @@ module.exports = function (Topics) {
             if (postObj) {
                 postObj.user = postObj.uid ? userData[postObj.uid] : { ...userData[postObj.uid] };
                 postObj.editor = postObj.editor ? editors[postObj.editor] : null;
+                postObj.accepted = accepts[i];
                 postObj.bookmarked = bookmarks[i];
                 postObj.upvoted = voteData.upvotes[i];
                 postObj.downvoted = voteData.downvotes[i];

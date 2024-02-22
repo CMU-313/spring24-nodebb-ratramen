@@ -52,7 +52,6 @@
 <div class="content" component="post/content" itemprop="text">
     {posts.content}
 </div>
-
 <div class="post-footer">
     {{{ if posts.user.signature }}}
     <div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
@@ -77,11 +76,12 @@
     {{{ end }}}
 
     <small class="pull-right">
+        <i class="fa fa-check-circle <!-- IF !posts.accepted -->hidden<!-- ENDIF !posts.accepted -->"></i>
         <!-- IMPORT partials/topic/reactions.tpl -->
         <span class="post-tools">
             <a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
             <a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
-            <a component="post/accept" href="#" data-accepted="false" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:accept]]</a>
+            <a component="post/accept" href="#" data-accepted="{posts.accepted}" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:accept]]</a>
         </span>
 
         <!-- IF !reputation:disabled -->
