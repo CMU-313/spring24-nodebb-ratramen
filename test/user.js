@@ -78,8 +78,8 @@ describe('User', () => {
             fullname: 'John Smith McNamara',
             password: 'swordfish',
             email: 'john@example.com',
-            callback: undefined,
             accounttype: 'student',
+            callback: undefined,
         };
 
         instructorData = {
@@ -87,8 +87,8 @@ describe('User', () => {
             fullname: 'John Smith McNamara',
             password: 'swordfish',
             email: 'john@example.com',
-            callback: undefined,
             accounttype: 'instructor',
+            callback: undefined,
         };
     });
 
@@ -99,19 +99,19 @@ describe('User', () => {
             testUid = await User.create({ username: userData.username, password: userData.password });
             assert.ok(testUid);
 
-            instructorUid = await User.create({
-                username: instructorData.username,
-                password: instructorData.password,
-                accounttype: instructorData.accounttype,
-            });
-            assert.ok(instructorUid);
-
             studentUid = await User.create({
                 username: studentData.username,
                 password: studentData.password,
                 accounttype: studentData.accounttype,
             });
             assert.ok(studentUid);
+
+            instructorUid = await User.create({
+                username: instructorData.username,
+                password: instructorData.password,
+                accounttype: instructorData.accounttype,
+            });
+            assert.ok(instructorUid);
 
             await User.setUserField(testUid, 'email', userData.email);
             await User.email.confirmByUid(testUid);
@@ -315,20 +315,20 @@ describe('User', () => {
     });
 
     describe('.isInstructor', () => {
-        it('returns true if accounttype == instructor', async () => {
-            const [err, isInstructor] = await User.isInstructor(instructorUid)
-                .then(data => [null, data])
-                .catch(err => [err, null]);
-            assert.equal(err, null);
-            assert.equal(isInstructor, true);
+        it('true if accounttype is instructor', (done) => {
+            User.isInstructor(instructorUid, (err, isInstructor) => {
+                assert.equal(err, null);
+                assert.equal(isInstructor, true);
+                done();
+            });
         });
 
-        it('returns false if accounttype != instructor', async () => {
-            const [err, isInstructor] = await User.isInstructor(studentUid)
-                .then(data => [null, data])
-                .catch(err => [err, null]);
-            assert.equal(err, null);
-            assert.equal(isInstructor, false);
+        it('false if accounttype is student', (done) => {
+            User.isInstructor(studentUid, (err, isInstructor) => {
+                assert.equal(err, null);
+                assert.equal(isInstructor, false);
+                done();
+            });
         });
     });
 
@@ -621,7 +621,6 @@ describe('User', () => {
             assert.equal(await db.sortedSetScore('users:reputation', uid), 0);
             await User.deleteAccount(uid);
             assert(!await db.isSortedSetMember('users:reputation', uid));
-            // await Posts.upvote(result.postData.pid, 1);
             assert(!await db.isSortedSetMember('users:reputation', uid));
         });
 
