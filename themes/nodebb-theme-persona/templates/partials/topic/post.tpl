@@ -85,17 +85,18 @@
 
         <!-- IF !reputation:disabled -->
         <span class="votes">
-            <a component="post/upvote" href="#" class="<!-- IF posts.upvoted -->upvoted<!-- ENDIF posts.upvoted -->">
+            <a component="post/upvote" href="#" class="<!-- IF posts.upvoted -->upvoted<!-- ENDIF posts.upvoted -->" style="color: #326077;">
                 <i class="fa fa-chevron-up"></i>
+                Pin
             </a>
 
             <span component="post/vote-count" data-votes="{posts.votes}">{posts.votes}</span>
 
-            <!-- IF !downvote:disabled -->
+            <!-- <!-- IF !downvote:disabled -->
             <a component="post/downvote" href="#" class="<!-- IF posts.downvoted -->downvoted<!-- ENDIF posts.downvoted -->">
                 <i class="fa fa-chevron-down"></i>
             </a>
-            <!-- ENDIF !downvote:disabled -->
+            <!-- ENDIF !downvote:disabled --> -->
         </span>
         <!-- ENDIF !reputation:disabled -->
 
