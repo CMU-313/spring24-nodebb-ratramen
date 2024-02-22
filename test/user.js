@@ -96,13 +96,21 @@ describe('User', () => {
 
     describe('.create(), when created', () => {
         it('should be created properly', async () => {
-            testUid       = await User.create({ username: userData.username, password: userData.password });
+            testUid = await User.create({ username: userData.username, password: userData.password });
             assert.ok(testUid);
 
-            instructorUid = await User.create({ username: instructorData.username, password: instructorData.password, accounttype: instructorData.accounttype });
+            instructorUid = await User.create({
+                username: instructorData.username,
+                password: instructorData.password,
+                accounttype: instructorData.accounttype,
+            });
             assert.ok(instructorUid);
-            
-            studentUid    = await User.create({ username: studentData.username, password: studentData.password, accounttype: studentData.accounttype });
+
+            studentUid = await User.create({
+                username: studentData.username,
+                password: studentData.password,
+                accounttype: studentData.accounttype,
+            });
             assert.ok(studentUid);
 
             await User.setUserField(testUid, 'email', userData.email);
@@ -308,17 +316,21 @@ describe('User', () => {
 
     describe('.isInstructor', () => {
         it('returns true if accounttype == instructor', async () => {
-            const [err, isInstructor] = await User.isInstructor(instructorUid).then(data => [null, data]).catch(err => [err, null]);
+            const [err, isInstructor] = await User.isInstructor(instructorUid)
+                .then(data => [null, data])
+                .catch(err => [err, null]);
             assert.equal(err, null);
             assert.equal(isInstructor, true);
         });
-    
+
         it('returns false if accounttype != instructor', async () => {
-            const [err, isInstructor] = await User.isInstructor(studentUid).then(data => [null, data]).catch(err => [err, null]);
+            const [err, isInstructor] = await User.isInstructor(studentUid)
+                .then(data => [null, data])
+                .catch(err => [err, null]);
             assert.equal(err, null);
             assert.equal(isInstructor, false);
         });
-    });    
+    });
 
     describe('.isReadyToPost()', () => {
         it('should error when a user makes two posts in quick succession', (done) => {
