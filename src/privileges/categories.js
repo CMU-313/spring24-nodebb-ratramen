@@ -142,9 +142,9 @@ privsCategories.can = async function (privilege, cid, uid) {
         privsCategories.isUserAllowedTo(privilege, cid, uid),
     ]);
 
+    let isInstructor;
     if (privilege === 'posts:upvote') {
-        const isInstructor = await user.isInstructor(uid); // Check if the user is an instructor
-        // Allow upvoting if the category is not disabled and the user is either an instructor or an admin
+        isInstructor = await user.isInstructor(uid);
         return !disabled && (isInstructor || isAdmin);
     }
 
