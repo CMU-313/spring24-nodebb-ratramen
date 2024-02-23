@@ -623,7 +623,7 @@ describe('Categories', () => {
             const result = await privileges.categories.can('posts:upvote', categoryObj.cid, student2Uid);
             assert.equal(result, false);
         });
-        
+
         it('should copy privileges from another category for a single group', async () => {
             const parent = await Categories.create({ name: 'parent', description: 'copy me' });
             const parentCid = parent.cid;
