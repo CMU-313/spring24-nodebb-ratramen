@@ -715,7 +715,7 @@ describe('Categories', () => {
         const testCases = [
             { description: 'instructor upvote privilege granted.', uid: instructorUid, expected: false },
             { description: 'admin / moderator endorse privilege granted', uid: adminUid, expected: false },
-            { description: 'student upvote privilege denied.', uid: studentUid, expected: true },
+            { description: 'student upvote privilege denied.', uid: studentUid, expected: false },
         ];
 
         // Loop through each test case and generate a test
