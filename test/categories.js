@@ -17,8 +17,8 @@ describe('Categories', () => {
     let categoryObj;
     let posterUid;
     let adminUid;
-    let instructorUid
-    let studentUid
+    let instructorUid;
+    let studentUid;
 
     before((done) => {
         async.series({
