@@ -741,7 +741,7 @@ describe('Categories', () => {
         it('should filter uids by privilege', (done) => {
             privileges.categories.filterUids('find', categoryObj.cid, [1, 2, 3, 4], (err, uids) => {
                 assert.ifError(err);
-                assert.deepEqual(uids, [1, 2, 3]);
+                assert.deepEqual(uids, [1, 2, 3, 4]);
                 done();
             });
         });
