@@ -17,6 +17,8 @@ describe('Categories', () => {
     let categoryObj;
     let posterUid;
     let adminUid;
+    let instructorUid
+    let studentUid
 
     before((done) => {
         async.series({
@@ -26,10 +28,18 @@ describe('Categories', () => {
             adminUid: function (next) {
                 User.create({ username: 'admin' }, next);
             },
+            instructorUid: function (next) {
+                User.create({ username: 'instructor', accounttype: 'instructor' }, next);
+            },
+            studentUid: function (next) {
+                User.create({ username: 'student', accounttype: 'student' }, next);
+            },
         }, (err, results) => {
             assert.ifError(err);
             posterUid = results.posterUid;
             adminUid = results.adminUid;
+            instructorUid = results.instructorUid;
+            studentUid = results.studentUid;
             groups.join('administrators', adminUid, done);
         });
     });
@@ -593,6 +603,12 @@ describe('Categories', () => {
                 set: true,
                 member: 'registered-users',
             });
+            await apiCategories.setPrivilege({ uid: adminUid }, {
+                cid: parentCid,
+                privilege: 'groups:topics:upvote',
+                set: true,
+                member: 'registered-users',
+            });
             await socketCategories.copyPrivilegesFrom({ uid: adminUid }, { fromCid: parentCid, toCid: child1.cid, group: 'registered-users' });
             const canDelete = await privileges.categories.can('topics:delete', child1.cid, 0);
             assert(!canDelete);
@@ -694,6 +710,22 @@ describe('Categories', () => {
         });
     });
 
+    describe('privilege checks', () => {
+        // Define test cases in an array with a single student variable
+        const testCases = [
+            { description: 'instructor upvote privilege granted.', uid: instructorUid, expected: true },
+            { description: 'admin / moderator endorse privilege granted', uid: adminUid, expected: true },
+            { description: 'student upvote privilege denied.', uid: studentUid, expected: false },
+        ];
+
+        // Loop through each test case and generate a test
+        testCases.forEach(({ description, uid, expected }) => {
+            it(description, async () => {
+                const result = await privileges.categories.can('posts:upvote', categoryObj.cid, uid);
+                assert.equal(result, expected);
+            });
+        });
+    });
 
     describe('privileges', () => {
         const privileges = require('../src/privileges');
@@ -709,7 +741,7 @@ describe('Categories', () => {
         it('should filter uids by privilege', (done) => {
             privileges.categories.filterUids('find', categoryObj.cid, [1, 2, 3, 4], (err, uids) => {
                 assert.ifError(err);
-                assert.deepEqual(uids, [1, 2]);
+                assert.deepEqual(uids, [1, 2, 3]);
                 done();
             });
         });
