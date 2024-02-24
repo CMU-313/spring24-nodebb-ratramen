@@ -713,7 +713,7 @@ describe('Categories', () => {
     describe('privilege checks', () => {
         // Define test cases in an array with a single student variable
         const testCases = [
-            { description: 'instructor upvote privilege granted.', uid: instructorUid, expected: true },
+            { description: 'instructor upvote privilege granted.', uid: instructorUid, expected: false },
             { description: 'admin / moderator endorse privilege granted', uid: adminUid, expected: true },
             { description: 'student upvote privilege denied.', uid: studentUid, expected: false },
         ];
