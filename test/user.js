@@ -100,14 +100,14 @@ describe('User', () => {
             instructorUid = await User.create({
                 username: instructorData.username,
                 password: instructorData.password,
-                accounttype: instructorData.accounttype
+                accounttype: instructorData.accounttype,
             });
             assert.ok(instructorUid);
 
             studentUid = await User.create({
                 username: studentData.username,
                 password: studentData.password,
-                accounttype: studentData.accounttype
+                accounttype: studentData.accounttype,
             });
             assert.ok(studentUid);
 
@@ -314,25 +314,25 @@ describe('User', () => {
 
     describe('.isInstructor', () => {
         it('returns true if accounttype == instructor', async () => {
-          let isInstructor;
-          try {
-            isInstructor = await User.isInstructor(instructorUid);
-            assert.equal(isInstructor, true);
-          } catch (err) {
-            assert.fail(err.message);
-          }
+            let isInstructor;
+            try {
+                isInstructor = await User.isInstructor(instructorUid);
+                assert.equal(isInstructor, true);
+            } catch (err) {
+                assert.fail(err.message);
+            }
         });
-      
+
         it('returns false if accounttype != instructor', async () => {
-          let isInstructor;
-          try {
-            isInstructor = await User.isInstructor(studentUid);
-            assert.equal(isInstructor, false);
-          } catch (err) {
-            assert.fail(err.message);
-          }
+            let isInstructor;
+            try {
+                isInstructor = await User.isInstructor(studentUid);
+                assert.equal(isInstructor, false);
+            } catch (err) {
+                assert.fail(err.message);
+            }
         });
-      });      
+    });
 
     describe('.isReadyToPost()', () => {
         it('should error when a user makes two posts in quick succession', (done) => {
