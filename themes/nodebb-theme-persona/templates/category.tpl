@@ -9,11 +9,9 @@
             <div class="col-lg-3 col-xs-9">
 
                 <div class="input-group">
-                    <input class="form-control" id="search-user" type="text" placeholder="Search for post"/>
+                    <input class="form-control" id="search-post" type="text" placeholder="Search for post"/>
                     <span class="input-group-addon">
-                        <a href="https://www.google.com" id="search-icon-link">
-                            <i component="user/search/icon" class="fa fa-search"></i>
-                        </a>                   
+                        <i component="user/search/icon" class="fa fa-search"></i>
                     </span>
                 </div>
         
