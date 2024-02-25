@@ -88,6 +88,7 @@
         <span class="votes">
             <a component="post/upvote" href="#" class="<!-- IF posts.upvoted -->upvoted<!-- ENDIF posts.upvoted -->">
                 <i class="fa fa-chevron-up"></i>
+                Pin
             </a>
 
             <span component="post/vote-count" data-votes="{posts.votes}">{posts.votes}</span>
