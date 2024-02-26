@@ -221,11 +221,15 @@ get:
                           type: boolean
                         topicOwnerPost:
                           type: boolean
+                        isTopicOwner:
+                          type: boolean
                         display_edit_tools:
                           type: boolean
                         display_delete_tools:
                           type: boolean
                         display_moderator_tools:
+                          type: boolean
+                        display_accept_button:
                           type: boolean
                         display_move_tools:
                           type: boolean

@@ -237,6 +237,7 @@ module.exports = function (Topics) {
         postData.display_edit_tools = true;
         postData.display_delete_tools = true;
         postData.display_moderator_tools = true;
+        postData.display_accept_button = true;
         postData.display_move_tools = true;
         postData.selfPost = false;
         postData.timestampISO = utils.toISOString(postData.timestamp);

@@ -162,10 +162,12 @@ module.exports = function (Topics) {
         const loggedIn = parseInt(topicPrivileges.uid, 10) > 0;
         topicData.posts.forEach((post) => {
             if (post) {
+                post.isTopicOwner = parseInt(topicPrivileges.uid, 10) == parseInt(topicData.uid, 10);
                 post.topicOwnerPost = parseInt(topicData.uid, 10) === parseInt(post.uid, 10);
                 post.display_edit_tools = topicPrivileges.isAdminOrMod || (post.selfPost && topicPrivileges['posts:edit']);
                 post.display_delete_tools = topicPrivileges.isAdminOrMod || (post.selfPost && topicPrivileges['posts:delete']);
                 post.display_moderator_tools = post.display_edit_tools || post.display_delete_tools;
+                post.display_accept_button = !post.display_moderator_tools && !post.topicOwnerPost && post.isTopicOwner;
                 post.display_move_tools = topicPrivileges.isAdminOrMod && post.index !== 0;
                 post.display_post_menu = topicPrivileges.isAdminOrMod ||
                     (post.selfPost &&
