@@ -81,7 +81,7 @@
         <span class="post-tools">
             <a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
             <a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
-            <a component="post/accept" href="#" data-accepted="{posts.accepted}" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:accept]]</a>
+            <a component="post/accept" href="#" data-accepted="{posts.accepted}" class="no-select <!-- IF posts.topicOwnerPost -->hidden<!-- ENDIF  posts.topicOwnerPost -->">[[topic:accept]]</a>
         </span>
 
         <!-- IF !reputation:disabled -->
