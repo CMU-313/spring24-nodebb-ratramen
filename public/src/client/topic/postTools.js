@@ -372,8 +372,8 @@ define('forum/topic/postTools', [
         });
         alerts.alert({
             type: 'success',
-            title: '[[global:answer_accepted_title]] ' + app.user.username + '!',
-            message: '[[global:answer_accepted_message]',
+            title: '[[global:answer_accepted_title]] !',
+            message: '[[global:answer_accepted_message]]',
             timeout: 5000,
         });
         return false;
