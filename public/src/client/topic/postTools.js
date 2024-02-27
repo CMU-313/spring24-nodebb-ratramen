@@ -112,6 +112,10 @@ define('forum/topic/postTools', [
             });
         });
 
+        postContainer.on('click', '[component="post/accept"]', function () {
+            return acceptPost($(this), getData($(this), 'data-pid'));
+        });
+
         postContainer.on('click', '[component="post/bookmark"]', function () {
             return bookmarkPost($(this), getData($(this), 'data-pid'));
         });
@@ -349,6 +353,24 @@ define('forum/topic/postTools', [
             range.detach();
         }
         return { text: selectedText, pid: selectedPid, username: username };
+    }
+
+    function acceptPost(button, pid) { // acceptPost(button: JQuery, pid: string): boolean
+        console.assert(typeof button === 'object', 'button is not an object');
+        console.assert(typeof pid === 'string', 'pid is not a string');
+        const method = button.attr('data-accepted') === 'false' ? 'put' : 'del';
+
+        console.log(button.attr('data-accepted'));
+
+        api[method](`/posts/${pid}/accept`, undefined, function (err) {
+            console.assert(typeof err === 'object', 'err is not an object');
+            if (err) {
+                return alerts.error(err);
+            }
+            const type = method === 'put' ? 'accept' : 'unaccept';
+            hooks.fire(`action:post.${type}`, { pid: pid });
+        });
+        return false;
     }
 
     function bookmarkPost(button, pid) {

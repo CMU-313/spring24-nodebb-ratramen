@@ -52,7 +52,6 @@
 <div class="content" component="post/content" itemprop="text">
     {posts.content}
 </div>
-
 <div class="post-footer">
     {{{ if posts.user.signature }}}
     <div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
@@ -77,16 +76,19 @@
     {{{ end }}}
 
     <small class="pull-right">
+        <i class="fa fa-check-circle <!-- IF !posts.accepted -->hidden<!-- ENDIF !posts.accepted -->"></i>
         <!-- IMPORT partials/topic/reactions.tpl -->
         <span class="post-tools">
             <a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
             <a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
+            <a component="post/accept" href="#" data-accepted="{posts.accepted}" class="no-select <!-- IF !posts.display_accept_button -->hidden<!-- ENDIF  !posts.display_accept_button -->">[[topic:accept]]</a>
         </span>
 
         <!-- IF !reputation:disabled -->
         <span class="votes">
             <a component="post/upvote" href="#" class="<!-- IF posts.upvoted -->upvoted<!-- ENDIF posts.upvoted -->">
                 <i class="fa fa-chevron-up"></i>
+                Pin
             </a>
 
             <span component="post/vote-count" data-votes="{posts.votes}">{posts.votes}</span>

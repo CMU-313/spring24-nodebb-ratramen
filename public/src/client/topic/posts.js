@@ -56,7 +56,6 @@ define('forum/topic/posts', [
     Posts.modifyPostsByPrivileges = function (posts) {
         posts.forEach(function (post) {
             post.selfPost = !!app.user.uid && parseInt(post.uid, 10) === parseInt(app.user.uid, 10);
-            post.topicOwnerPost = parseInt(post.uid, 10) === parseInt(ajaxify.data.uid, 10);
 
             post.display_edit_tools = (ajaxify.data.privileges['posts:edit'] && post.selfPost) || ajaxify.data.privileges.isAdminOrMod;
             post.display_delete_tools = (ajaxify.data.privileges['posts:delete'] && post.selfPost) || ajaxify.data.privileges.isAdminOrMod;

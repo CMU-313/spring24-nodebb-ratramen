@@ -153,6 +153,10 @@ User.isGlobalModerator = async function (uid) {
     return await privileges.users.isGlobalModerator(uid);
 };
 
+User.getAccountType = async uid => User.getUserField(uid, 'accounttype');
+
+User.isInstructor = async uid => (await User.getAccountType(uid)) === 'instructor';
+
 User.getPrivileges = async function (uid) {
     return await utils.promiseParallel({
         isAdmin: User.isAdministrator(uid),

@@ -19,6 +19,9 @@ define('forum/topic/events', [
         'event:voted': updatePostVotesAndUserReputation,
         'event:bookmarked': updateBookmarkCount,
 
+        'post.pin': togglePinPost,
+        'posts.unpin': togglePinPost,
+
         'event:topic_deleted': threadTools.setDeleteState,
         'event:topic_restored': threadTools.setDeleteState,
         'event:topic_purged': onTopicPurged,
@@ -39,6 +42,9 @@ define('forum/topic/events', [
 
         'posts.bookmark': togglePostBookmark,
         'posts.unbookmark': togglePostBookmark,
+
+        'posts.accept': togglePostAccept,
+        'posts.unaccept': togglePostAccept,
 
         'posts.upvote': togglePostVote,
         'posts.downvote': togglePostVote,
@@ -67,6 +73,32 @@ define('forum/topic/events', [
 
     function onUserStatusChange(data) {
         app.updateUserStatus($('[data-uid="' + data.uid + '"] [component="user/status"]'), data.status);
+    }
+
+    // Toggles the pin status of a post
+    // @param {Object} data - { post: { pid: (string|number) }, isPinned: boolean }
+    function togglePinPost(data) {
+        /**
+         * Asserts:
+         *   - `data` is an object
+         *   - `data.post` is an object
+         *   - `data.post.pid` is a string or number
+         *   - `data.isPinned` is a boolean
+         */
+        console.assert(typeof data === 'object', 'data must be an object');
+        console.assert(typeof data.post === 'object', 'data.post must be an object');
+        console.assert(typeof data.post.pid === 'string' || typeof data.post.pid === 'number', 'data.post.pid must be a string or number');
+        console.assert(typeof data.isPinned === 'boolean', 'data.isPinned must be a boolean');
+
+        const pinElement = $('[data-pid="' + data.post.pid + '"] [component="post/pin"]').filter(function (index, el) {
+            return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
+        });
+
+        console.assert(pinElement.length > 0, 'Post pin element not found for PID: ' + data.post.pid);
+
+        pinElement.attr('data-pinned', data.isPinned);
+        pinElement.find('[component="post/pin/on"]').toggleClass('hidden', !data.isPinned);
+        pinElement.find('[component="post/pin/off"]').toggleClass('hidden', data.isPinned);
     }
 
     function updatePostVotesAndUserReputation(data) {
@@ -219,6 +251,23 @@ define('forum/topic/events', [
 
         el.find('[component="post/bookmark/on"]').toggleClass('hidden', !data.isBookmarked);
         el.find('[component="post/bookmark/off"]').toggleClass('hidden', data.isBookmarked);
+    }
+
+    function togglePostAccept(data) { // togglePostAccept(data: object): void
+        console.assert(typeof data === 'object', 'Invalid data provided: data needs to be an object');
+        const el = $('[data-pid="' + data.post.pid + '"] [component="post/accept"]').filter(function (index, el) {
+            console.assert(typeof index === 'number', 'Invalid index provided: index needs to be a number');
+            console.assert(typeof el === 'object', 'Invalid el provided: el needs to be an object');
+            return parseInt($(el).closest('[data-pid]').attr('data-pid'), 10) === parseInt(data.post.pid, 10);
+        });
+        if (!el.length) {
+            return;
+        }
+
+        el.attr('data-accepted', data.isAccepted);
+
+        el.find('[component="post/accept/on"]').toggleClass('hidden', !data.isAccepted);
+        el.find('[component="post/accept/off"]').toggleClass('hidden', data.isAccepted);
     }
 
     function togglePostVote(data) {
