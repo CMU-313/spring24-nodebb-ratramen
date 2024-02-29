@@ -18,5 +18,14 @@ Description of how tests function: these tests basically execute an acceptance a
 
 ## Post Pinning
 How to use and test:
-Link to tests:
-Description of how tests function:
+- create a clean build of NodeBB
+- go to general discussion and create a new topic
+- sign out and login with a instructor account (Note: users that made post can't pin their own post)
+- press 'pin' and refresh
+
+Link to tests: [pull request](https://github.com/CMU-313/spring24-nodebb-ratramen/pull/27)
+- Or view on lines 713 - 728 to test>categories.js
+Description of how tests function: verify if different types of users have the correct privileges for pinning
+posts.
+
+[video](https://drive.google.com/file/d/1ZGQxjnLyTpzw33Cptg2huiSnxNmnTAfr/view?usp=sharing)
