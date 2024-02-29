@@ -18,6 +18,8 @@
     "posting_restriction_info": "登録ユーザーのみが投稿可能となります.こちらからログインください。",
     "welcome_back": "おかえりなさい",
     "you_have_successfully_logged_in": "ログインできました",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "保存する",
     "save": "保存",
     "close": "閉じる",

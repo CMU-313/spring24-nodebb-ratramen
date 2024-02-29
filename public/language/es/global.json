@@ -18,6 +18,8 @@
     "posting_restriction_info": "Para publicar se requiere ser usuario registrado, conéctate o regístrate.",
     "welcome_back": "¡Bienvenido de nuevo!",
     "you_have_successfully_logged_in": "Identificado satisfactoriamente",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Guardar cambios",
     "save": "Guardar",
     "close": "Cerrar",

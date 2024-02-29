@@ -18,6 +18,8 @@
     "posting_restriction_info": "বর্তমানে নিবন্ধিত সদস্যরাই কেবল পোস্ট করতে পারেন, লগ ইন করতে এখানে ক্লিক করুন।",
     "welcome_back": "আপনাকে স্বাগতম",
     "you_have_successfully_logged_in": "আপনি সফলভাবে প্রবেশ করেছেন",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "পরিবর্তনগুলি সঞ্চয় করুন",
     "save": "Save",
     "close": "বন্ধ",

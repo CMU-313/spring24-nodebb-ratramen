@@ -18,6 +18,8 @@
     "posting_restriction_info": "Наразі постити можуть лише зареєстровані користувачі, натисніть тут щоб увійти.",
     "welcome_back": "З поверненням",
     "you_have_successfully_logged_in": "Ви успішно увійшли",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Зберегти зміни",
     "save": "Зберегти",
     "close": "Закрити",

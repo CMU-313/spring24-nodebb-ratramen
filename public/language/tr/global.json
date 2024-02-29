@@ -18,6 +18,8 @@
     "posting_restriction_info": "İleti gönderme sadece kayıtlı kullanıcılar içindir, giriş yapmak için buraya tıklayın.",
     "welcome_back": "Tekrar Hoş Geldiniz",
     "you_have_successfully_logged_in": "Başarıyla giriş yaptınız!",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Değişiklikleri Kaydet",
     "save": "Kaydet",
     "close": "Kapat",

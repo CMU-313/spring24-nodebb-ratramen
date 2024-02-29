@@ -18,6 +18,8 @@
     "posting_restriction_info": "현재 회원들만 작성할 수 있습니다. 여기를 누르면 로그인 페이지로 이동합니다.",
     "welcome_back": "환영합니다.",
     "you_have_successfully_logged_in": "성공적으로 로그인했습니다.",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "변경사항 저장",
     "save": "저장",
     "close": "닫기",

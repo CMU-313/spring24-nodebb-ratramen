@@ -18,6 +18,8 @@
     "posting_restriction_info": "Publicar está, neste momento, apenas restrito a membros registados, clica aqui para iniciares sessão.",
     "welcome_back": "Bem-vindo de volta",
     "you_have_successfully_logged_in": "Iniciaste sessão com sucesso",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Guardar as alterações",
     "save": "Guardar",
     "close": "Fechar",

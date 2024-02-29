@@ -18,6 +18,8 @@
     "posting_restriction_info": "A postagem está restrita apenas à membros registrados, clique aqui para logar.",
     "welcome_back": "Bem-vindo de volta",
     "you_have_successfully_logged_in": "Você logou com sucesso",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Salvar Alterações",
     "save": "Salvar",
     "close": "Fechar",

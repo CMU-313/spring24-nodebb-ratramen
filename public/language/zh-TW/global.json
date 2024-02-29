@@ -18,6 +18,8 @@
     "posting_restriction_info": "僅限已註冊成員發文，點這裡登入。",
     "welcome_back": "歡迎回來",
     "you_have_successfully_logged_in": "您已成功登入",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "儲存更改",
     "save": "儲存",
     "close": "關閉",

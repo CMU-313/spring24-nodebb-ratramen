@@ -18,6 +18,8 @@
     "posting_restriction_info": "Публикуването в момента е позволено само за регистрираните потребители. Натиснете тук, за да се впишете.",
     "welcome_back": "Добре дошли отново",
     "you_have_successfully_logged_in": "Вие влязохте успешно",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Запазване на промените",
     "save": "Запазване",
     "close": "Затваряне",
