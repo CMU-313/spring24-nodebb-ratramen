@@ -15,7 +15,7 @@
 </noscript>
 
 
-<noscript><div class="dropdown" component="category-selector"></noscript>
+<noscript><div class="categories" component="category-selector"></noscript>
 <label component="category/post" for="category-dropdown-check" class="btn btn-primary" id="new_category" role="button">
     New Category
 </label>
