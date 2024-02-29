@@ -18,6 +18,8 @@
     "posting_restriction_info": "Det er i øjeblikket kun muligt at skrive indlæg som registeret medlem, klik her for at logge ind.",
     "welcome_back": "Velkommen tilbage",
     "you_have_successfully_logged_in": "Du er nu logget ind",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Gem ændringer",
     "save": "Save",
     "close": "Luk",

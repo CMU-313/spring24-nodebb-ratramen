@@ -18,6 +18,8 @@
     "posting_restriction_info": "Kirjoittaminen on tällä hetkellä rajattu vain rekisteröityneille käyttäjille. Napsauta tätä kirjautuaksesi.",
     "welcome_back": "Tervetuloa takaisin",
     "you_have_successfully_logged_in": "Olet onnistuneesti kirjautunut sisään",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Tallenna muutokset",
     "save": "Tallenna",
     "close": "Sulje",

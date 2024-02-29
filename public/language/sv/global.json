@@ -18,6 +18,8 @@
     "posting_restriction_info": "Man måste vara inloggad för att kunna skapa inlägg, klicka här för att logga in.",
     "welcome_back": "Välkommen tillbaka ",
     "you_have_successfully_logged_in": "Inloggningen lyckades",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Spara ändringar",
     "save": "Spara",
     "close": "Stäng",

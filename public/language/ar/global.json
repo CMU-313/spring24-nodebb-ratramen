@@ -18,6 +18,8 @@
     "posting_restriction_info": "إضافة مشاركات جديد حكر على الأعضاء المسجلين، انقر هنا لتسجيل الدخول.",
     "welcome_back": "مرحبًا بعودتك",
     "you_have_successfully_logged_in": "تم سجيل الدخول بنجاح",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "حفظ التغييرات",
     "save": "حفظ",
     "close": "أغلق",

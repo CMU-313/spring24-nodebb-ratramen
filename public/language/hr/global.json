@@ -18,6 +18,8 @@
     "posting_restriction_info": "Objave su trenutačno omogućene samo registriranim korisnicima,kliknite ovdje za prijavu.",
     "welcome_back": "Dobrodošli natrag",
     "you_have_successfully_logged_in": "Uspješno ste se prijavili",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Spremi promjene",
     "save": "Spremi",
     "close": "Zatvori",

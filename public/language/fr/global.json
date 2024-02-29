@@ -18,6 +18,8 @@
     "posting_restriction_info": "L'envoi de messages est réservé aux membres inscrits, cliquez ici pour vous connecter.",
     "welcome_back": "Bienvenue",
     "you_have_successfully_logged_in": "Vous vous êtes bien connecté",
+    "answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
     "save_changes": "Enregistrer les changements",
     "save": "Enregistrer",
     "close": "Fermer",
