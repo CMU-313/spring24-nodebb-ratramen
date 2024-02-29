@@ -370,6 +370,12 @@ define('forum/topic/postTools', [
             const type = method === 'put' ? 'accept' : 'unaccept';
             hooks.fire(`action:post.${type}`, { pid: pid });
         });
+        alerts.alert({
+            type: 'success',
+            title: '[[global:answer_accepted_title]] !',
+            message: '[[global:answer_accepted_message]]',
+            timeout: 5000,
+        });
         return false;
     }
 

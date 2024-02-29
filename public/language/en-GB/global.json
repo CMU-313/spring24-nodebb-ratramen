@@ -21,6 +21,9 @@
 
 	"welcome_back": "Welcome Back ",
 	"you_have_successfully_logged_in": "You have successfully logged in",
+	"answer_accepted_title": "Answer Accepted",
+	"answer_accepted_message": "You have successfully accepted answer!",
+
 
 	"save_changes": "Save Changes",
 	"save": "Save",
