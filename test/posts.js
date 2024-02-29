@@ -177,6 +177,22 @@ describe('Post\'s', () => {
         });
     });
 
+    describe('accepting', () => {
+        it('should accept a post', async () => {
+            const data = await apiPosts.accept({ uid: voterUid }, { pid: postData.pid, room_id: `topic_${postData.tid}` });
+            assert.equal(data.isAccepted, true);
+            const hasAccepted = await posts.hasAccepted(postData.pid, voterUid);
+            assert.equal(hasAccepted, true);
+        });
+
+        it('should unaccept a post', async () => {
+            const data = await apiPosts.unaccept({ uid: voterUid }, { pid: postData.pid, room_id: `topic_${postData.tid}` });
+            assert.equal(data.isAccepted, false);
+            const hasAccepted = await posts.hasAccepted([postData.pid], voterUid);
+            assert.equal(hasAccepted[0], false);
+        });
+    });
+
     describe('post tools', () => {
         it('should error if data is invalid', (done) => {
             socketPosts.loadPostTools({ uid: globalModUid }, null, (err) => {
