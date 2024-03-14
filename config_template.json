@@ -1,11 +1,11 @@
 {
-    "url": "",
+    "url": "https://spring24-nodebb-ratramen-xsnd4mvloa-uc.a.run.app",
     "secret": "c5502d62-84a5-41f1-87eb-ee33a76fb7bc",
     "database": "redis",
     "redis": {
-      "host": "",
-      "port": "",
-      "password": "",
+      "host": "us1-splendid-fox-42082.upstash.io",
+      "port": "42082",
+      "password": "e11e340748a2419e84e7637d28acb89f",
       "database": "0"
     },
     "port": "4567"
