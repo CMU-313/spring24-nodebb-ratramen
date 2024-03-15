@@ -9,16 +9,16 @@
   ],
   "ignorePatterns": [
     "build/public/plugins/nodebb-plugin-emoji", 
-  "build/public/plugins/nodebb-plugin-markdown/styles", 
-  "build/public/plugins/nodebb-rewards-essentials/static",
-  "test/controllers.js",
-  "test/plugins.js",
-  "test/build.js",
-  "test/search.js",
-  "test/upgrade.js"
+    "build/public/plugins/nodebb-plugin-markdown/styles", 
+    "build/public/plugins/nodebb-rewards-essentials/static",
+    "test/controllers.js",
+    "test/plugins.js",
+    "test/build.js",
+    "test/search.js",
+    "test/upgrade.js"
   ],
   "mutate" : [
-    "src/categories/*.js"
+    "src/posts/*.js"
   ],
   "testRunner": "mocha",
   "testRunner_comment": "Take a look at https://stryker-mutator.io/docs/stryker-js/mocha-runner for information about the mocha plugin.",
