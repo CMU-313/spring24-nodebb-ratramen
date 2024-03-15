@@ -7,6 +7,16 @@
     "clear-text",
     "progress"
   ],
+  "ignorePatterns": [
+    "build/public/plugins/nodebb-plugin-emoji", 
+  "build/public/plugins/nodebb-plugin-markdown/styles", 
+  "build/public/plugins/nodebb-rewards-essentials/static",
+  "test/controllers.js",
+  "test/plugins.js",
+  "test/build.js",
+  "test/search.js",
+  "test/upgrade.js"
+  ],
   "mutate" : [
     "src/categories/*.js"
   ],
