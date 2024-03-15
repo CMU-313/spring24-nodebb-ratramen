@@ -14,7 +14,8 @@
         "lint": "npx tsc && eslint --cache ./nodebb .",
         "test": "npx tsc && nyc --reporter=html --reporter=text-summary mocha",
         "coverage": "nyc report --reporter=text-lcov > ./coverage/lcov.info",
-        "coveralls": "nyc report --reporter=text-lcov | coveralls && rm -r coverage"
+        "coveralls": "nyc report --reporter=text-lcov | coveralls && rm -r coverage",
+        "testStandardJS": "standard && node my-tests.js"
     },
     "nyc": {
         "exclude": [
@@ -129,6 +130,7 @@
         "sortablejs": "1.15.0",
         "spdx-license-list": "6.6.0",
         "spider-detector": "2.0.0",
+        "standard": "*",
         "terser-webpack-plugin": "5.3.6",
         "textcomplete": "0.18.2",
         "textcomplete.contenteditable": "0.1.1",
