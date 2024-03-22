@@ -446,10 +446,10 @@ async function createCategories () {
 
   console.log('No categories found, populating instance with default categories')
 
-  const default_categories = JSON.parse(
+  const defaultCategories = JSON.parse(
     await fs.promises.readFile(path.join(__dirname, '../', 'install/data/categories.json'), 'utf8')
   )
-  for (const categoryData of default_categories) {
+  for (const categoryData of defaultCategories) {
     // eslint-disable-next-line no-await-in-loop
     await Categories.create(categoryData)
   }
