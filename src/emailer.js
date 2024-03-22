@@ -191,13 +191,13 @@ Emailer.registerApp = (expressApp) => {
     // not the entire meta.config object
     if (config) {
       // Update default payload if new logo is uploaded
-      if (Object.prototype.hasOwnProperty.call(config,'brand:emailLogo')) {
+      if (Object.prototype.hasOwnProperty.call(config, 'brand:emailLogo')) {
         Emailer._defaultPayload.logo.src = config['brand:emailLogo']
       }
-      if (Object.prototype.hasOwnProperty.call(config,'brand:emailLogo:height')) {
+      if (Object.prototype.hasOwnProperty.call(config, 'brand:emailLogo:height')) {
         Emailer._defaultPayload.logo.height = config['brand:emailLogo:height']
       }
-      if (Object.prototype.hasOwnProperty.call(config,'brand:emailLogo:width')) {
+      if (Object.prototype.hasOwnProperty.call(config, 'brand:emailLogo:width')) {
         Emailer._defaultPayload.logo.width = config['brand:emailLogo:width']
       }
 

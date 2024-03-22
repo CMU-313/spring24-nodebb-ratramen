@@ -128,17 +128,17 @@ function checkCIFlag () {
   }
 
   if (ciVals && ciVals instanceof Object) {
-    if (Object.prototype.hasOwnProperty.call(ciVals,'host') && Object.prototype.hasOwnProperty.call(ciVals,'port') && Object.prototype.hasOwnProperty.call(ciVals,'database')) {
+    if (Object.prototype.hasOwnProperty.call(ciVals, 'host') && Object.prototype.hasOwnProperty.call(ciVals, 'port') && Object.prototype.hasOwnProperty.call(ciVals, 'database')) {
       install.ciVals = ciVals
     } else {
       winston.error('[install/checkCIFlag] required values are missing for automated CI integration:')
-      if (!Object.prototype.hasOwnProperty.call(ciVals,'host')) {
+      if (!Object.prototype.hasOwnProperty.call(ciVals, 'host')) {
         winston.error('  host')
       }
-      if (!Object.prototype.hasOwnProperty.call(ciVals,'port')) {
+      if (!Object.prototype.hasOwnProperty.call(ciVals, 'port')) {
         winston.error('  port')
       }
-      if (!Object.prototype.hasOwnProperty.call(ciVals,'database')) {
+      if (!Object.prototype.hasOwnProperty.call(ciVals, 'database')) {
         winston.error('  database')
       }
 
@@ -171,9 +171,9 @@ async function setupConfig () {
     ]
 
     allQuestions.forEach((question) => {
-      if (Object.prototype.hasOwnProperty.call(install.values,question.name)) {
+      if (Object.prototype.hasOwnProperty.call(install.values, question.name)) {
         config[question.name] = install.values[question.name]
-      } else if (Object.prototype.hasOwnProperty.call(question,'default')) {
+      } else if (Object.prototype.hasOwnProperty.call(question, 'default')) {
         config[question.name] = question.default
       } else {
         config[question.name] = undefined
@@ -199,7 +199,7 @@ async function completeConfigSetup (config) {
   nconf.overrides(config)
   const db = require('./database')
   await db.init()
-  if (Object.prototype.hasOwnProperty.call(db,'createIndices')) {
+  if (Object.prototype.hasOwnProperty.call(db, 'createIndices')) {
     await db.createIndices()
   }
 
@@ -209,7 +209,7 @@ async function completeConfigSetup (config) {
   }
 
   // If port is explicitly passed via install vars, use it. Otherwise, glean from url if set.
-  const urlObj = new URL(config.url)
+  const urlObj = new url.URL(config.url)
   if (urlObj.port && (!install.values || !Object.prototype.hasOwnProperty.call(install.values, 'port'))) {
     config.port = urlObj.port
   }
@@ -387,7 +387,7 @@ async function createAdmin () {
   }
   // If automated setup did not provide a user password, generate one,
   // it will be shown to the user upon setup completion
-  if (!Object.prototype.hasOwnProperty.call(install.values,'admin:password') && !nconf.get('admin:password')) {
+  if (!Object.prototype.hasOwnProperty.call(install.values, 'admin:password') && !nconf.get('admin:password')) {
     console.log('Password was not provided during automated setup, generating one...')
     password = utils.generateUUID().slice(0, 8)
   }
