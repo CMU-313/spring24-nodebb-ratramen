@@ -42,13 +42,13 @@ Analytics.init = async function () {
     ttl: 0
   })
 
-  new cronJob('*/10 * * * * *', async () => {
-    publishLocalAnalytics()
+  const analyticsCronJob = new CronJob('*/10 * * * * *', async () => {
+    publishLocalAnalytics();
     if (runJobs) {
-      await sleep(2000)
-      await Analytics.writeData()
+      await sleep(2000);
+      await Analytics.writeData();
     }
-  }, null, true)
+  }, null, true);
 
   if (runJobs) {
     pubsub.on('analytics:publish', (data) => {

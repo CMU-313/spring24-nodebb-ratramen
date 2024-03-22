@@ -14,15 +14,15 @@ const __importDefault = (this && this.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { default: mod }
 }
 Object.defineProperty(exports, '__esModule', { value: true })
-exports.setActivePostSharingNetworks = exports.getActivePostSharing = exports.getPostSharing = void 0
-const lodash_1 = __importDefault(require('lodash'))
-const plugins_1 = __importDefault(require('./plugins'))
-const database_1 = __importDefault(require('./database'))
+exports.setActivePostSharingNetworks = exports.getActivePostSharing = exports.getPostSharing = undefined
+const lodash1 = __importDefault(require('lodash'))
+const plugins1 = __importDefault(require('./plugins'))
+const database1 = __importDefault(require('./database'))
 let postSharing = null
 function getPostSharing () {
-  return __awaiter(this, void 0, void 0, function * () {
+  return __awaiter(this, undefined, undefined, function * () {
     if (postSharing) {
-      return lodash_1.default.cloneDeep(postSharing)
+      return lodash1.default.cloneDeep(postSharing)
     }
     let networks = [
       {
@@ -38,26 +38,26 @@ function getPostSharing () {
         activated: null
       }
     ]
-    networks = (yield plugins_1.default.hooks.fire('filter:social.posts', networks))
+    networks = (yield plugins1.default.hooks.fire('filter:social.posts', networks))
     // The next line calls a function in a module that has not been updated to TS yet
     const activated = yield database_1.default.getSetMembers('social:posts.activated') //eslint-disable-line
     networks.forEach((network) => {
       network.activated = activated.includes(network.id)
     })
     postSharing = networks
-    return lodash_1.default.cloneDeep(networks)
+    return lodash1.default.cloneDeep(networks)
   })
 }
 exports.getPostSharing = getPostSharing
 function getActivePostSharing () {
-  return __awaiter(this, void 0, void 0, function * () {
+  return __awaiter(this, undefined, undefined, function * () {
     const networks = yield getPostSharing()
     return networks.filter(network => network && network.activated)
   })
 }
 exports.getActivePostSharing = getActivePostSharing
 function setActivePostSharingNetworks (networkIDs) {
-  return __awaiter(this, void 0, void 0, function * () {
+  return __awaiter(this, undefined, undefined, function * () {
     postSharing = null
     // The next line calls a function in a module that has not been updated to TS yet
     yield database_1.default.delete('social:posts.activated') //eslint-disable-line
