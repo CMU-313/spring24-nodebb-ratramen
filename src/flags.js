@@ -139,11 +139,11 @@ Flags.getFlagIdsWithFilters = async function ({ filters, uid, query }) {
   const orSets = []
 
   // Default filter
-  filters.page = filters.hasOwnProperty('page') ? Math.abs(parseInt(filters.page, 10) || 1) : 1
-  filters.perPage = filters.hasOwnProperty('perPage') ? Math.abs(parseInt(filters.perPage, 10) || 20) : 20
+  filters.page = Object.prototype.hasOwnProperty.call(filters,'page') ? Math.abs(parseInt(filters.page, 10) || 1) : 1
+  filters.perPage = Object.prototype.hasOwnProperty.call(filters,'perPage') ? Math.abs(parseInt(filters.perPage, 10) || 20) : 20
 
   for (const type of Object.keys(filters)) {
-    if (Flags._filters.hasOwnProperty(type)) {
+    if (Object.prototype.hasOwnProperty.call(Flags._filters,type)) {
       Flags._filters[type](sets, orSets, filters[type], uid)
     } else {
       winston.warn(`[flags/list] No flag filter type found: ${type}`)
@@ -756,7 +756,7 @@ Flags.getHistory = async function (flagId) {
 
     // Deserialise changeset
     const changeset = entry.value[1]
-    if (changeset.hasOwnProperty('state')) {
+    if (Object.prototype.hasOwnProperty.call(changeset,('state'))) {
       changeset.state = changeset.state === undefined ? '' : `[[flags:state-${changeset.state}]]`
     }
 
