@@ -50,7 +50,7 @@ const smtpSettingsChanged = (config) => {
     'email:smtpTransport:security'
   ]
   // config only has these properties if settings are saved on /admin/settings/email
-  return settings.some(key => config.hasOwnProperty(key) && config[key] !== prevConfig[key])
+  return settings.some(key => Object.prototype.hasOwnProperty.call(config, key) && config[key] !== prevConfig[key])
 }
 
 const getHostname = () => {
@@ -164,7 +164,7 @@ Emailer.registerApp = (expressApp) => {
   app = expressApp
 
   let logo = null
-  if (meta.config.hasOwnProperty('brand:emailLogo')) {
+  if (Object.prototype.hasOwnProperty.call(meta.config, 'brand:emailLogo')) {
     logo = (!meta.config['brand:emailLogo'].startsWith('http') ? nconf.get('url') : '') + meta.config['brand:emailLogo']
   }
 
@@ -191,13 +191,13 @@ Emailer.registerApp = (expressApp) => {
     // not the entire meta.config object
     if (config) {
       // Update default payload if new logo is uploaded
-      if (config.hasOwnProperty('brand:emailLogo')) {
+      if (Object.prototype.hasOwnProperty.call(config,'brand:emailLogo')) {
         Emailer._defaultPayload.logo.src = config['brand:emailLogo']
       }
-      if (config.hasOwnProperty('brand:emailLogo:height')) {
+      if (Object.prototype.hasOwnProperty.call(config,'brand:emailLogo:height')) {
         Emailer._defaultPayload.logo.height = config['brand:emailLogo:height']
       }
-      if (config.hasOwnProperty('brand:emailLogo:width')) {
+      if (Object.prototype.hasOwnProperty.call(config,'brand:emailLogo:width')) {
         Emailer._defaultPayload.logo.width = config['brand:emailLogo:width']
       }
 
