@@ -263,8 +263,8 @@ async function listen () {
     winston.info('Using ports 80 and 443 is not recommend; use a proxy instead. See README.md')
   }
 
-  const bind_address = ((nconf.get('bind_address') === '0.0.0.0' || !nconf.get('bind_address')) ? '0.0.0.0' : nconf.get('bind_address'))
-  const args = isSocket ? [socketPath] : [port, bind_address]
+  const bindAddress = ((nconf.get('bind_address') === '0.0.0.0' || !nconf.get('bind_address')) ? '0.0.0.0' : nconf.get('bind_address'))
+  const args = isSocket ? [socketPath] : [port, bindAddress]
   let oldUmask
 
   if (isSocket) {
@@ -279,7 +279,7 @@ async function listen () {
 
   return new Promise((resolve, reject) => {
     server.listen(...args.concat([function (err) {
-      const onText = `${isSocket ? socketPath : `${bind_address}:${port}`}`
+      const onText = `${isSocket ? socketPath : `${bindAddress}:${port}`}`
       if (err) {
         winston.error(`[startup] NodeBB was unable to listen on: ${chalk.yellow(onText)}`)
         reject(err)
