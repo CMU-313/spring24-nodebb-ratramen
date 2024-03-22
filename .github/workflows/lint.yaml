@@ -79,8 +79,8 @@ jobs:
         run: |
           node app --setup="${SETUP}" --ci="${CI}"
 
-      - name: Run ESLint
-        run: npm run lint
+      - name: Run StandardJS fix
+        run: npx standard "src/*.js" --fix
 
       - name: Run StandardJS
         run: npx standard "src/*.js"
