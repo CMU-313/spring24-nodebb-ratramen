@@ -55,7 +55,7 @@ const smtpSettingsChanged = (config) => {
 
 const getHostname = () => {
   const configUrl = nconf.get('url')
-  const parsed = new URL(configUrl)
+  const parsed = new url.URL(configUrl)
   return parsed.hostname
 }
 
