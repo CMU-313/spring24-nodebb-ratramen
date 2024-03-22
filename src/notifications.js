@@ -50,7 +50,7 @@ Notifications.getAllNotificationTypes = async function () {
 
 Notifications.startJobs = function () {
   winston.verbose('[notifications.init] Registering jobs.')
-  new cron('*/30 * * * *', Notifications.prune, null, true)
+  new Cron('*/30 * * * *', Notifications.prune, null, true)
 }
 
 Notifications.get = async function (nid) {

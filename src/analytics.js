@@ -42,7 +42,7 @@ Analytics.init = async function () {
     ttl: 0
   })
 
-  new cronJob('*/10 * * * * *', async () => {
+  new CronJob('*/10 * * * * *', async () => {
     publishLocalAnalytics()
     if (runJobs) {
       await sleep(2000)
