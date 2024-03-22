@@ -217,7 +217,7 @@ function setupFavicon (app) {
 
 function configureBodyParser (app) {
   const urlencodedOpts = nconf.get('bodyParser:urlencoded') || {}
-  if (!urlencodedOpts.hasOwnProperty('extended')) {
+  if (!Object.prototype.hasOwnProperty.call(urlencodedOpts,'extended')) {
     urlencodedOpts.extended = true
   }
   app.use(bodyParser.urlencoded(urlencodedOpts))

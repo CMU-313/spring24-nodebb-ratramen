@@ -65,7 +65,7 @@ Upgrade.appendPluginScripts = async function (files) {
     const configPath = path.join(paths.nodeModules, plugin, 'plugin.json')
     try {
       const pluginConfig = require(configPath)
-      if (pluginConfig.hasOwnProperty('upgrades') && Array.isArray(pluginConfig.upgrades)) {
+      if (Object.prototype.hasOwnProperty.call(pluginConfig,'upgrades') && Array.isArray(pluginConfig.upgrades)) {
         pluginConfig.upgrades.forEach((script) => {
           files.push(path.join(path.dirname(configPath), script))
         })

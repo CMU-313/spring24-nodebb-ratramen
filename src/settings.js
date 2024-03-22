@@ -11,7 +11,7 @@ function expandObjBy (obj1, obj2) {
   for (const [key, val2] of Object.entries(obj2)) {
     const val1 = obj1[key]
     const xorIsArray = Array.isArray(val1) !== Array.isArray(val2)
-    if (xorIsArray || !obj1.hasOwnProperty(key) || typeof val2 !== typeof val1) {
+    if (xorIsArray || !Object.prototype.hasOwnProperty.call(obj1,key) || typeof val2 !== typeof val1) {
       obj1[key] = val2
       changed = true
     } else if (typeof val2 === 'object' && !Array.isArray(val2)) {
@@ -25,7 +25,7 @@ function expandObjBy (obj1, obj2) {
 
 function trim (obj1, obj2) {
   for (const [key, val1] of Object.entries(obj1)) {
-    if (!obj2.hasOwnProperty(key)) {
+    if (!Object.prototype.hasOwnProperty.call(obj2,key)) {
       delete obj1[key]
     } else if (typeof val1 === 'object' && !Array.isArray(val1)) {
       trim(val1, obj2[key])
@@ -199,7 +199,7 @@ Settings.prototype.set = function (key, val) {
     for (let i = 0, _len = parts.length - 1; i < _len; i += 1) {
       part = parts[i]
       if (part) {
-        if (!obj.hasOwnProperty(part)) {
+        if (!Object.prototype.hasOwnProperty.call(obj,part)) {
           obj[part] = {}
         }
         obj = obj[part]
