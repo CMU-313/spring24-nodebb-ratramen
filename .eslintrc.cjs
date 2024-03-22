@@ -44,7 +44,7 @@ function find_compiled_js() {
     module.exports = {
         extends: ["nodebb"],
         root: true,
-        ignorePatterns: find_compiled_js(),
+        ignorePatterns: [find_compiled_js(), "src/*.js"],
         rules: {
             "indent": ["error", 4]
         },
