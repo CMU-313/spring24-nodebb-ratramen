@@ -1,4 +1,4 @@
-name: Lint
+name: Lint_Standard
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
     permissions:
       checks: write  # for coverallsapp/github-action to create new checks
       contents: read  # for actions/checkout to fetch code
-    name: Lint
+    name: Lint_Standard
     strategy:
       fail-fast: false
       matrix:
@@ -81,6 +81,3 @@ jobs:
 
       - name: Run StandardJS fix
         run: npx standard "src/*.js" --fix
-
-      - name: Run StandardJS
-        run: npx standard "src/*.js"
