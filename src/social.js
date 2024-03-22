@@ -60,13 +60,11 @@ function setActivePostSharingNetworks (networkIDs) {
   return __awaiter(this, void 0, void 0, function * () {
     postSharing = null
     // The next line calls a function in a module that has not been updated to TS yet
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     yield database_1.default.delete('social:posts.activated')
     if (!networkIDs.length) {
       return
     }
     // The next line calls a function in a module that has not been updated to TS yet
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     yield database_1.default.setAdd('social:posts.activated', networkIDs)
   })
 }
