@@ -51,7 +51,7 @@ image.resizeImage = async function (data) {
     const metadata = await sharpImage.metadata()
 
     sharpImage.rotate() // auto-orients based on exif data
-    sharpImage.resize(data.hasOwnProperty('width') ? data.width : null, data.hasOwnProperty('height') ? data.height : null)
+    sharpImage.resize(Object.prototype.hasOwnProperty.call(data,'width') ? data.width : null, Object.prototype.hasOwnProperty.call(data,'height') ? data.height : null)
 
     if (data.quality) {
       switch (metadata.format) {
