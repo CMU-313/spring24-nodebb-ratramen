@@ -87,9 +87,9 @@ function loadConfig (configFile) {
 
   if (nconf.get('url')) {
     nconf.set('url', nconf.get('url').replace(/\/$/, ''))
-    nconf.set('url_parsed', url.parse(nconf.get('url')))
+    nconf.set('url_parsed', url.URL(nconf.get('url')))
     // Parse out the relative_url and other goodies from the configured URL
-    const urlObject = url.parse(nconf.get('url'))
+    const urlObject = url.URL(nconf.get('url'))
     const relativePath = urlObject.pathname !== '/' ? urlObject.pathname.replace(/\/+$/, '') : ''
     nconf.set('base_url', `${urlObject.protocol}//${urlObject.host}`)
     nconf.set('secure', urlObject.protocol === 'https:')
