@@ -41,7 +41,7 @@ function getPostSharing () {
     networks = (yield plugins1.default.hooks.fire('filter:social.posts', networks))
     // The next line calls a function in a module that has not been updated to TS yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    const activated = yield database1.default.getSetMembers('social:posts.activated')
+    const activated = yield database1.default.getSetMembers('social:posts.activated') //eslint-disable-line
     networks.forEach((network) => {
       network.activated = activated.includes(network.id)
     })
@@ -62,13 +62,13 @@ function setActivePostSharingNetworks (networkIDs) {
     postSharing = null
     // The next line calls a function in a module that has not been updated to TS yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    yield database1.default.delete('social:posts.activated')
+    yield database1.default.delete('social:posts.activated') //eslint-disable-line
     if (!networkIDs.length) {
       return
     }
     // The next line calls a function in a module that has not been updated to TS yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    yield database1.default.setAdd('social:posts.activated', networkIDs)
+    yield database1.default.setAdd('social:posts.activated', networkIDs) //eslint-disable-line
   })
 }
 exports.setActivePostSharingNetworks = setActivePostSharingNetworks
