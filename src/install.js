@@ -594,7 +594,7 @@ install.setup = async function () {
   }
 }
 
-install.save = async function (server_conf) {
+install.save = async function (serverConf) {
   let serverConfigPath = path.join(__dirname, '../config.json')
 
   if (nconf.get('config')) {
@@ -610,7 +610,7 @@ install.save = async function (server_conf) {
     }
   }
 
-  await fs.promises.writeFile(serverConfigPath, JSON.stringify({ ...currentConfig, ...server_conf }, null, 4))
+  await fs.promises.writeFile(serverConfigPath, JSON.stringify({ ...currentConfig, ...serverConf }, null, 4))
   console.log('Configuration Saved OK')
   nconf.file({
     file: serverConfigPath
