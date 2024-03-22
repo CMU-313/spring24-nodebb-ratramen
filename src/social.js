@@ -15,14 +15,14 @@ const __importDefault = (this && this.__importDefault) || function (mod) {
 }
 Object.defineProperty(exports, '__esModule', { value: true })
 exports.setActivePostSharingNetworks = exports.getActivePostSharing = exports.getPostSharing = undefined
-const lodash_1 = __importDefault(require('lodash'))
-const plugins_1 = __importDefault(require('./plugins'))
-const database_1 = __importDefault(require('./database'))
+const lodash1 = __importDefault(require('lodash'))
+const plugins1 = __importDefault(require('./plugins'))
+const database1 = __importDefault(require('./database'))
 let postSharing = null
 function getPostSharing () {
   return __awaiter(this, undefined, undefined, function * () {
     if (postSharing) {
-      return lodash_1.default.cloneDeep(postSharing)
+      return lodash1.default.cloneDeep(postSharing)
     }
     let networks = [
       {
@@ -38,15 +38,15 @@ function getPostSharing () {
         activated: null
       }
     ]
-    networks = (yield plugins_1.default.hooks.fire('filter:social.posts', networks))
+    networks = (yield plugins1.default.hooks.fire('filter:social.posts', networks))
     // The next line calls a function in a module that has not been updated to TS yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    const activated = yield database_1.default.getSetMembers('social:posts.activated')
+    const activated = yield database1.default.getSetMembers('social:posts.activated')
     networks.forEach((network) => {
       network.activated = activated.includes(network.id)
     })
     postSharing = networks
-    return lodash_1.default.cloneDeep(networks)
+    return lodash1.default.cloneDeep(networks)
   })
 }
 exports.getPostSharing = getPostSharing
@@ -62,13 +62,13 @@ function setActivePostSharingNetworks (networkIDs) {
     postSharing = null
     // The next line calls a function in a module that has not been updated to TS yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    yield database_1.default.delete('social:posts.activated')
+    yield database1.default.delete('social:posts.activated')
     if (!networkIDs.length) {
       return
     }
     // The next line calls a function in a module that has not been updated to TS yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    yield database_1.default.setAdd('social:posts.activated', networkIDs)
+    yield database1.default.setAdd('social:posts.activated', networkIDs)
   })
 }
 exports.setActivePostSharingNetworks = setActivePostSharingNetworks
