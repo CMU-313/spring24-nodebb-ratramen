@@ -199,7 +199,7 @@ async function completeConfigSetup (config) {
   nconf.overrides(config)
   const db = require('./database')
   await db.init()
-  if (db.hasOwnProperty('createIndices')) {
+  if (Object.prototype.hasOwnProperty.call(db,'createIndices')) {
     await db.createIndices()
   }
 
