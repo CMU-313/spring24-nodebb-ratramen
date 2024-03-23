@@ -42,7 +42,7 @@ Analytics.init = async function () {
     ttl: 0
   })
 
-  new cronJob('*/10 * * * * *', async () => {
+  new cronJob('*/10 * * * * *', async () => { //eslint-disable-line
     publishLocalAnalytics()
     if (runJobs) {
       await sleep(2000)
