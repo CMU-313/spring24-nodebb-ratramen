@@ -18,6 +18,8 @@ logs/
 .eslintrc
 test/files
 *.min.js
+src/social.js
+src/install.js
 
 /public/src/app.js
 /public/src/client.js
