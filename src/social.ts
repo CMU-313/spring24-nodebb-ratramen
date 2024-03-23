@@ -1,7 +1,7 @@
 // This is one of the two example TypeScript files included with the NodeBB repository
 // It is meant to serve as an example to assist you with your HW1 translation
 
-import _ from 'lodash'; // eslint-disable-line
+import lo from 'lodash';
 import plugins from './plugins';
 import db from './database';
 
@@ -11,7 +11,7 @@ let postSharing: Network[] | null = null;
 
 export async function getPostSharing(): Promise<Network[]> {
     if (postSharing) {
-        return _.cloneDeep(postSharing); // eslint-disable-line
+        return lo.cloneDeep(postSharing);
     }
 
     let networks: Network[] = [
@@ -39,7 +39,7 @@ export async function getPostSharing(): Promise<Network[]> {
     });
 
     postSharing = networks;
-    return _.cloneDeep(networks); // eslint-disable-line
+    return lo.cloneDeep(networks);
 }
 
 export async function getActivePostSharing(): Promise<Network[]> {
@@ -47,7 +47,7 @@ export async function getActivePostSharing(): Promise<Network[]> {
     return networks.filter(network => network && network.activated);
 }
 
-export async function setActivePostSharingNetworks(networkIDs: string[]): Promise<void> { // eslint-disable-line
+export async function setActivePostSharingNetworks(networkIDs: string[]): Promise<undefined> {
     postSharing = null;
 
     // The next line calls a function in a module that has not been updated to TS yet
